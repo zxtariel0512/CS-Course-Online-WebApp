@@ -12,12 +12,44 @@ After registration and filling out some basic personal information, users are ab
 ## Data Model
 The application will store User, Course, and Review.
 
-* User can have an array of Course (via reference).
+* User can have an array of Course (via reference, and would be populated by Course name).
 
-* Course can have an array of Review (via reference).
+* Course can have an array of Review (via reference, and would be populated by Review ratings).
+
+* Review has a publisher (via reference to User, and would be populated by username), and a reviewed course (via reference, and would be populated by Course name).
 
 An example of User:
 
 `{
-    u
+    username: 'zxtariel',
+    password: //hash,
+    email: 'zxt@gmail.com',
+    confirmed: true,
+    courses: ['Theory of Computation', 'Computer System Organizations', 'Applied Internet Technologies'],
+    phone: '9283839999', //optional
+    instagram: 'zxtlll', //optional
+    facebook: 'zxtzzz' //optional
 }`
+
+An example of Course:
+
+`{
+    name: 'Applied Internet Technologies',
+    description: 'Introduce javascript, authentication, html, etc, which are useful for creating web applications.',
+    instructor: 'Joe Veroza',
+    time: 'Tue, Thu. 9:30-10:45',
+    mode: 'online',
+    location: 'N/A',
+    reviews: [5, 5, 4, 5, 5, 4]
+}`
+
+An example of Review:
+
+`{
+    publisher: 'ls33',
+    content: 'Brilliant class! Very thorough introduction, and now I can make a web app on my own!.' //optional
+    ratings: 5,
+    course: 'Applied Internet Technologies'
+}`
+
+### [Link to the draft of models]('https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models')

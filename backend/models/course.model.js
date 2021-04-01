@@ -28,7 +28,8 @@ const courseSchema = new mongoose.Schema({
     },
     reviews: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
+        ref: 'Review',
+        require: true
     }]
 });
 
