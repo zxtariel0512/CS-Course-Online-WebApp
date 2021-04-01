@@ -20,6 +20,7 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
+// here comes the routes & other middleware
 
 
 
