@@ -20,7 +20,12 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
-// here comes the routes & other middleware
+// here comes the routes
+const userRouter = require('./routes/user.js');
+const courseRouter = require('./routes/course.js');
+
+app.use('/users', userRouter);
+app.use('/courses', courseRouter);
 
 
 
