@@ -22,6 +22,10 @@ An example of User:
 
 `{
     username: 'zxtariel',
+    
+    firstname: 'Xintong',
+    lastname: 'Zhu',
+    gender: 'female',//optional
     password: //hash,
     email: 'zxt@gmail.com',
     confirmed: true,
@@ -53,3 +57,6 @@ An example of Review:
 }`
 
 ### [Link to the draft of models](https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models)
+
+## Wireframes
+
