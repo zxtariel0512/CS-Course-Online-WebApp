@@ -129,3 +129,15 @@ An example of Review:
 * As login user, I can view and change some information in my profile.
 * As login user, I can see reviews of a specific course.
 * As login user, I can post a review to any course.
+
+## Research Topics
+* (4 points) React.js
+    * Plan to have a thorough self-learning on React.js, so that I can use MERN stack (MongoDB, Express.js, React.js, and Node.js) to finish this project.
+    * Plan to integrate some relatively fancier web pages, compared to those in assignments.
+    * Plan to study how to use React.js along with Node.js to create web application.
+* (3 points) Server side authentication: confirmation email
+    * Plan to use either aws-amplify or Nodemailer to realize the confirmation functionality: after entering email address in registering process, the user needs to confirm their email address before formally being registered.
+* (2 points) Client side authentication
+    * Plan to do this on my own via printing out different kinds of error messages (e.g.: password format incorrect, invalid email address, username too short, etc) on the web page and re-prompt the user for input.
+* (3 points) Use some payment API, such as Paypal.api, to realize payment functionality
+    * Enable user to pay for their courses online.
