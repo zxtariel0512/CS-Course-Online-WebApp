@@ -114,6 +114,6 @@ An example of Review:
 ## Site Map
 **The following site map is generated in illustrator.**
 
-![](./documentation/siteMap.pdf)
+![](./documentation/siteMap.png)
 
 ### [Link to the cite map](./documentation/siteMap.pdf)
