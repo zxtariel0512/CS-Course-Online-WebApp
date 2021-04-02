@@ -61,7 +61,7 @@ An example of Review:
 }
 ```
 
-### [Link to the draft of models](https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models)
+### [Link to the draft of models](./backend/models)
 
 ## Wireframes
 
@@ -112,3 +112,8 @@ An example of Review:
 ![](./documentation/payment.png)
 
 ## Site Map
+**The following site map is generated in illustrator.**
+
+![](./documentation/siteMap.pdf)
+
+### [Link to the cite map](./documentation/siteMap.pdf)
