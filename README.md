@@ -142,6 +142,8 @@ An example of Review:
 * (3 points) Use some payment API, such as Paypal.api, to realize payment functionality
     * Enable user to pay for their courses online.
 
+12 points total out of 8.
+
 ## [Link to Initial Main Project File](./backend/server.js)
 
 ## Anotation / Refereces
