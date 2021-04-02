@@ -65,4 +65,45 @@ An example of Review:
 
 ## Wireframes
 #### / - main page, redirect to /courses
+
 ![](./documentation/course.png)
+
+#### /courses - display all courses and brief info
+
+![](./documentation/course.png)
+
+#### /about - contains information about the educational institution
+
+![](./documentation/about.png)
+
+#### /price-and-rule - contains information about the prices, tuition, and tutorial of this web application (course registration)
+
+![](./documentation/price&rule.png)
+
+#### /login - log in page, prompt user for username and password
+
+![](./documentation/login)
+
+#### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
+
+![](./documentation/register)
+
+#### /courses/slug - page for specific course that contains information of that course, reviews, and enroll option. slug would be the course's name.
+
+![](./documentation/specificCourse.png)
+
+#### /courses/slug/reviews - contains all reviews (ratings and comments) of a specific course specified by the slug (the course's name)
+
+![](./documentation/overallRating)
+
+#### /courses/slug/reviews/post - post a review to a specific course (required login status)
+
+![](./documentation/review)
+
+#### /username/profile - personal profile of current user
+
+![](./documentation/profile)
+
+#### /payment - payment page (may change depending on which API to use finally)
+
+![](./documentation/payment)
