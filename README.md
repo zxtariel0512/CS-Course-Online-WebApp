@@ -143,3 +143,9 @@ An example of Review:
     * Enable user to pay for their courses online.
 
 ## [Link to Initial Main Project File](./backend/server.js)
+
+## Anotation / Refereces
+* [Tutorial of Nodemailer](https://nodemailer.com/about/)
+* [Tutorial of React.js](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+* [Tutorial of MERN Stack](https://www.youtube.com/watch?v=7CqJlxBYj-M&t=5568s)
+* [Markdown language cheatsheet](https://www.markdownguide.org/cheat-sheet/)
