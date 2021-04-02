@@ -120,21 +120,12 @@ An example of Review:
 
 ## User Stories
 * As non-register user, I can browse all courses and their basic info.
-
 * As non-register user, I can browse the basic information of how to use this course registration application.
-
 * As non-register user, I can register an account with a valid email address.
-
 * As registered user, I can login.
-
 * As login user, I can enroll any class on site.
-
 * (As login user, I can drop any class I have previously enrolled.)
-
 * As login user, I can pay for courses that I have enrolled.
-
 * As login user, I can view and change some information in my profile.
-
 * As login user, I can see reviews of a specific course.
-
 * As login user, I can post a review to any course.
