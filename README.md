@@ -20,9 +20,9 @@ The application will store User, Course, and Review.
 
 An example of User:
 
-`{
-    username: 'zxtariel',
-    
+`
+{
+    username: 'zxtariel',   
     firstname: 'Xintong',
     lastname: 'Zhu',
     gender: 'female',//optional
@@ -33,11 +33,13 @@ An example of User:
     phone: '9283839999', //optional
     instagram: 'zxtlll', //optional
     facebook: 'zxtzzz' //optional
-}`
+}
+`
 
 An example of Course:
 
-`{
+`
+{
     name: 'Applied Internet Technologies',
     description: 'Introduce javascript, authentication, html, etc, which are useful for creating web applications.',
     instructor: 'Joe Veroza',
@@ -45,16 +47,19 @@ An example of Course:
     mode: 'online',
     location: 'N/A',
     reviews: [5, 5, 4, 5, 5, 4]
-}`
+}
+`
 
 An example of Review:
 
-`{
+`
+{
     publisher: 'ls33',
     content: 'Brilliant class! Very thorough introduction, and now I can make a web app on my own!.' //optional
     ratings: 5,
     course: 'Applied Internet Technologies'
-}`
+}
+`
 
 ### [Link to the draft of models](https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models)
 
