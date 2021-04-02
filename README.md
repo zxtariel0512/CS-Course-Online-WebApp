@@ -64,46 +64,51 @@ An example of Review:
 ### [Link to the draft of models](https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models)
 
 ## Wireframes
-#### / - main page, redirect to /courses
+
+**Some are finished in photoshop, and some are finished in hand drawings.**
+
+### / - main page, redirect to /courses
 
 ![](./documentation/course.png)
 
-#### /courses - display all courses and brief info
+### /courses - display all courses and brief info
 
 ![](./documentation/course.png)
 
-#### /about - contains information about the educational institution
+### /about - contains information about the educational institution
 
 ![](./documentation/about.png)
 
-#### /price-and-rule - contains information about the prices, tuition, and tutorial of this web application (course registration)
+### /price-and-rule - contains information about the prices, tuition, and tutorial of this web application (course registration)
 
 ![](./documentation/price&rule.png)
 
-#### /login - log in page, prompt user for username and password
+### /login - log in page, prompt user for username and password
 
-![](./documentation/login)
+![](./documentation/login.png)
 
-#### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
+### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
 
-![](./documentation/register)
+![](./documentation/register.png)
 
-#### /courses/slug - page for specific course that contains information of that course, reviews, and enroll option. slug would be the course's name.
+### /courses/slug - page for specific course that contains information of that course, reviews, and enroll option. slug would be the course's name.
 
 ![](./documentation/specificCourse.png)
 
-#### /courses/slug/reviews - contains all reviews (ratings and comments) of a specific course specified by the slug (the course's name)
+### /courses/slug/reviews - contains all reviews (ratings and comments) of a specific course specified by the slug (the course's name)
 
-![](./documentation/overallRating)
+![](./documentation/overallRating.png)
 
-#### /courses/slug/reviews/post - post a review to a specific course (required login status)
+### /courses/slug/reviews/post - post a review to a specific course (required login status)
 
-![](./documentation/review)
+![](./documentation/review.png)
 
-#### /username/profile - personal profile of current user
+### /username/profile - personal profile of current user
 
-![](./documentation/profile)
+![](./documentation/profile.png)
 
-#### /payment - payment page (may change depending on which API to use finally)
+### /payment - payment page (may change depending on which API to use finally)
 
-![](./documentation/payment)
+![](./documentation/payment.png)
+
+## Site Map
