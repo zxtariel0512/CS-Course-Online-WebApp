@@ -64,4 +64,5 @@ An example of Review:
 ### [Link to the draft of models](https://github.com/nyu-csci-ua-0480-034-spring-2021/zxtariel0512-final-project/tree/master/backend/models)
 
 ## Wireframes
-
+#### / - main page, redirect to /courses
+(./documentation/course.png)
