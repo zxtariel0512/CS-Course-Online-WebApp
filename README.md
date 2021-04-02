@@ -65,4 +65,4 @@ An example of Review:
 
 ## Wireframes
 #### / - main page, redirect to /courses
-(./documentation/course.png)
+!(./documentation/course.png)
