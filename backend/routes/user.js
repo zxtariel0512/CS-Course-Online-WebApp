@@ -1,6 +1,6 @@
 const router = require('express').Router();
-let User = require('../models/user.model.js');
-let Course = require('../models/course.model.js');
+const User = require('../models/user.model.js');
+const Course = require('../models/course.model.js');
 
 // here comes the routes
 
