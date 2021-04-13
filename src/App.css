@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+#required{
+  color: red;
+}
+
+.fillInfo{
+  padding: 100px;
+}
+
+#submitBtn{
+  display: block;
+  margin-top: 50px;
+  margin-left: 430px;
+}
+
+Form{
+  margin-top: 30px;
+}
+
+.secondaryText{
+  color: red;
+}

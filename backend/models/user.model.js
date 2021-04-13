@@ -6,14 +6,6 @@ const userSchema = new mongoose.Schema({
         require: true,
         unique: true
     },
-    firstname: {
-        type: String,
-        require: true
-    },
-    lastname: {
-        type: String,
-        require: true
-    },
     gender: String,
     password: {
         type: String,
@@ -34,7 +26,17 @@ const userSchema = new mongoose.Schema({
     }],
     phone: String,
     instagram: String,
-    facebook: String
+    facebook: String,
+    firstName: {
+        type: String,
+        require: true
+    },
+    lastName: {
+        type: String,
+        require: true
+    },
+    Age: String,
+    preferredPron: String
 });
 
 module.exports = mongoose.model('User', userSchema);
