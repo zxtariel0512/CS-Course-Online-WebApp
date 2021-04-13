@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body{
+  font-family:Gill Sans, sans-serif;
+  background-image: url('./public/img/main-background.jpeg');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -42,13 +47,24 @@
 }
 
 .fillInfo{
-  padding: 100px;
+  /* padding: 70px;
+  padding-left: 200px;
+  padding-right: 200px; */
+  margin: auto;
+  padding: 40px;
+  width: 60%;
+  background: white;
+  height: fit-content;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px
 }
 
 #submitBtn{
   display: block;
-  margin-top: 50px;
-  margin-left: 430px;
+  margin-top: 30px;
+  margin-left: 260px;
 }
 
 Form{
