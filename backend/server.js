@@ -35,7 +35,8 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  dbconf = conf.dbconf;
 } else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://xz1991:uPuxnAMD@class-mongodb.cims.nyu.edu/xz1991';
+//  dbconf = 'mongodb://xz1991:uPuxnAMD@class-mongodb.cims.nyu.edu/xz1991';
+    dbconf = 'mongodb://localhost:3000/xz1991';
 }
 mongoose.connect(dbconf, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
