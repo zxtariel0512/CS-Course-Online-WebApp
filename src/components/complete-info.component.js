@@ -87,7 +87,7 @@ export default class CompleteUserInformation extends Component{
     params.append("facebook", this.state.fb);
     params.append("phone", this.state.phone);
     
-    axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
+    axios.put(`http://localhost:3000/users/${cookies.get('username')}`, params);
   }
 
   render(){
@@ -136,9 +136,9 @@ export default class CompleteUserInformation extends Component{
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
+                value={this.state.gender}
+                onChange={this.onChangeGender}
               </Form.Control>
-              value={this.state.gender}
-              onChange={this.onChangeGender}
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPreferredPron">
