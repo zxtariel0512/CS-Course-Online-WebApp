@@ -12,18 +12,13 @@ router.route('/register').post(async(req, res) => {
     let newUser = await User.create(user);
     await newUser.save();
     res.json(newUser);
-    // res.json(newUser);
-    // User.create(user);
-    // try {
-    //   let newUser = await User.create(req.body);
-    //   res.json(newUser);
-    // } catch (error) {
-    //   res.status(500).json({message: "error: create new user"})
-    // }
-    // new User({
-    //     email: req.body.email,
-    //      username: req.body.username,
-    //      password: req.body.password
+    req.params.username = user.username;
+    // res.redirect('/complete-user-information');
+})
+
+router.route('/:username').put(async(req, res) => {
+    let target = await User.findOne({username: req.params.username}).update(req.body);
+    res.json(target);
 })
 
 

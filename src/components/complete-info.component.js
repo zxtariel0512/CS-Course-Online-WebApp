@@ -7,12 +7,78 @@ import Button from 'react-bootstrap/Button';
 
 export default class CompleteUserInformation extends Component{
 
+  constructor(props) {
+    super(props);
+
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeAge = this.onChangeAge.bind(this);
+    this.onChangeGender = this.onChangeGender.bind(this);
+    this.onChangePron = this.onChangePron.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangeIns = this.onChangeIns.bind(this);
+    this.onChangeFb = this.onChangeFb.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      fistName: '',
+      lastName: '',
+      age: '',
+      gender: '',
+      pron: '',
+      phone: '',
+      ins: '',
+      fb: ''
+    }
+  }
+
+  onChangeFirstName(e) {
+    this.setState({
+      firstName: e.target.value
+    })
+  }
+  onChangeLastName(e) {
+    this.setState({
+      LastName: e.target.value
+    })
+  }
+  onChangeAge(e) {
+    this.setState({
+      age: e.target.value
+    })
+  }
+  onChangeGender(e) {
+    this.setState({
+      gender: e.target.value
+    })
+  }
+  onChangePron(e) {
+    this.setState({
+      pron: e.target.value
+    })
+  }
+  onChangeFb(e) {
+    this.setState({
+      fb: e.target.value
+    })
+  }
+  onChangePhone(e) {
+    this.setState({
+      phone: e.target.value
+    })
+  }
+  onChangeIns(e) {
+    this.setState({
+      ins: e.target.value
+    })
+  }
+
   render(){
     return (
       <div class='mediumPanel'>
         <h2>Fill up some information so that your teachers and classmates can know you better!</h2>
         <p class='secondaryText'>* are required information</p>
-        <Form>
+        <Form onSubmit={this.onSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridFirstName">
               <Form.Label>First Name<span id='required'>*</span></Form.Label>
