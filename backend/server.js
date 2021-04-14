@@ -58,5 +58,9 @@ app.use('/users', userRouter);
 // app.use('/courses', courseRouter);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('Server is running');
+    if(process.env.PORT){
+        console.log(`Server is running ${process.env.PORT}`);
+    } else{
+        console.log('Server is running 3000');
+    }
 });
