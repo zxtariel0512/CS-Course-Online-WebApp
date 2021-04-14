@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default class CompleteUserInformation extends Component{
 
@@ -39,7 +42,7 @@ export default class CompleteUserInformation extends Component{
   }
   onChangeLastName(e) {
     this.setState({
-      LastName: e.target.value
+      lastName: e.target.value
     })
   }
   onChangeAge(e) {
@@ -72,20 +75,35 @@ export default class CompleteUserInformation extends Component{
       ins: e.target.value
     })
   }
+  onSubmit(e) {
+    e.preventDefault();
+    var params = new URLSearchParams();
+    params.append("firstName", this.state.firstName);
+    params.append("lastName", this.state.lastName);
+    params.append("Age", this.state.age);
+    params.append("gender", this.state.gender);
+    params.append("preferredPron", this.state.pron);
+    params.append("instagram", this.state.ins);
+    params.append("facebook", this.state.fb);
+    params.append("phone", this.state.phone);
+    
+    axios.put(`http://localhost:3000/users/${cookies.get('username')}`, params);
+  }
 
   render(){
     return (
       <div class='mediumPanel'>
         <h2>Fill up some information so that your teachers and classmates can know you better!</h2>
-        <p class='secondaryText'>* are required information</p>
+        <p class='secondaryText'>* are recommended information</p>
         <Form onSubmit={this.onSubmit}>
           <Form.Row>
             <Form.Group as={Col} controlId="formGridFirstName">
               <Form.Label>First Name<span id='required'>*</span></Form.Label>
               <Form.Control
-                required
                 type="text"
                 placeholder="Enter your first name..."
+                value={this.state.firstName}
+                onChange={this.onChangeFirstName}
               />
             </Form.Group>
 
@@ -95,6 +113,8 @@ export default class CompleteUserInformation extends Component{
                 required
                 type="text"
                 placeholder="Enter your last name..."
+                value={this.state.lastName}
+                onChange={this.onChangeLastName}
               />
             </Form.Group>
 
@@ -103,6 +123,8 @@ export default class CompleteUserInformation extends Component{
               <Form.Control
                 type="text"
                 placeholder="Enter your age..."
+                value={this.state.age}
+                onChange={this.onChangeAge}
               />
             </Form.Group>
           </Form.Row>
@@ -116,6 +138,8 @@ export default class CompleteUserInformation extends Component{
                 <option>Female</option>
                 <option>Other</option>
               </Form.Control>
+              value={this.state.gender}
+              onChange={this.onChangeGender}
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPreferredPron">
@@ -125,6 +149,8 @@ export default class CompleteUserInformation extends Component{
                 <option>He/Him/His</option>
                 <option>She/Her/Hers</option>
                 <option>Other</option>
+                value={this.state.pron}
+                onChange={this.onChangePron}
               </Form.Control>
             </Form.Group>
           </Form.Row>
@@ -135,6 +161,8 @@ export default class CompleteUserInformation extends Component{
               <Form.Control
                 type="text"
                 placeholder="Enter your phone number..."
+                value={this.state.phone}
+                onChange={this.onChangePhone}
               />
             </Form.Group>
 
@@ -143,6 +171,8 @@ export default class CompleteUserInformation extends Component{
               <Form.Control
                 type="text"
                 placeholder="Enter your insagram ID..."
+                value={this.state.ins}
+                onChange={this.onChangeIns}
               />
             </Form.Group>
 
@@ -151,6 +181,8 @@ export default class CompleteUserInformation extends Component{
               <Form.Control
                 type="text"
                 placeholder="Enter your facebook ID..."
+                value={this.state.fb}
+                onChange={this.onChangeFb}
               />
             </Form.Group>
           </Form.Row>

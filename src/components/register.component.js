@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 
 export default class Register extends Component{
@@ -44,7 +47,8 @@ export default class Register extends Component{
         const user = {
             username: this.state.username,
             password: this.state.password,
-            email: this.state.email
+            email: this.state.email,
+            firstName: this.state.username
         }
         var params = new URLSearchParams();
         params.append('username', user.username);
@@ -52,6 +56,7 @@ export default class Register extends Component{
         params.append('email', user.email);
         axios.post('http://localhost:3000/users/register', params)
             .then(console.log(params));
+        cookies.set('username', this.state.username);
         window.location = '/complete-user-information';
         
       }

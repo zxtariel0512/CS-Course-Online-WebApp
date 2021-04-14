@@ -12,12 +12,12 @@ router.route('/register').post(async(req, res) => {
     let newUser = await User.create(user);
     await newUser.save();
     res.json(newUser);
-    req.params.username = user.username;
     // res.redirect('/complete-user-information');
 })
 
 router.route('/:username').put(async(req, res) => {
-    let target = await User.findOne({username: req.params.username}).update(req.body);
+    let target = await User.findOne({username: req.params.username});
+    await target.update(req.body);
     res.json(target);
 })
 
