@@ -50,6 +50,7 @@ export default class Register extends Component{
             email: this.state.email,
             firstName: this.state.username
         }
+        cookies.set('username', this.state.username);
         var params = new URLSearchParams();
         params.append('username', user.username);
         params.append('password', user.password);
@@ -57,7 +58,6 @@ export default class Register extends Component{
         axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
         // axios.post('http://localhost:3000/users/register', params)
             .then(console.log(params));
-        cookies.set('username', this.state.username);
         window.location = '/complete-user-information';
         
       }
