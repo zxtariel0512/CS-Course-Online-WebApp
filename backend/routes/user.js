@@ -35,5 +35,11 @@ router.route('/updateUserProfile').put(async(req, res) => {
     res.json(target);
 })
 
+router.route('/loginUser').get(async(req, res) =>{
+    const username = req.session.user.username;
+    let target = await User.findOne({username: username});
+    res.json(target);
+})
+
 
 module.exports = router;

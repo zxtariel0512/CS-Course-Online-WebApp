@@ -166,3 +166,4 @@ An example of Review:
 * [Tutorial for bootstrap in react.js](https://react-bootstrap.netlify.app/components/forms/)
 * [Tutorial for AWS-Amplify for user authentication](https://blog.logrocket.com/authentication-react-apps-aws-amplify-cognito/)
 * [Tutorial for AWS-Amplify for user authentication](https://cloud.google.com/api-gateway/docs/authenticating-users-jwt#:~:text=To%20authenticate%20a%20user%2C%20a,API%20to%20process%20the%20authentication.)
+* [Tutorial for handling react events](https://reactjs.org/docs/handling-events.html)

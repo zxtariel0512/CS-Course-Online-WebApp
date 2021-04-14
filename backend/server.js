@@ -21,6 +21,7 @@ app.use(express.static('./build'));
 app.use('/register', express.static('./build'));
 app.use('/complete-user-information', express.static('./build'));
 app.use('/login', express.static('./build'));
+app.use('/profile', express.static('./build'));
 
 // const uri = 'mongodb://localhost/cs-online-courses';
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
