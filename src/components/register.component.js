@@ -46,32 +46,13 @@ export default class Register extends Component{
             password: this.state.password,
             email: this.state.email
         }
-        // var params = new URLSearchParams();
-        // params.append('username', 'test4test4');
-        // params.append('password', 'Test4Test4');
-        // params.append('email', 'test4@nyu.edu');
-        // fetch('/users/register', {
-        //     method: 'POST',
-        //     body: {"username": 'test4test4', "email": 'test4@nyu.edu', "password": 'Test4Test4'}
-        // })
-        axios.post('http://localhost:3000/users/register', user)
-            .then(console.log(user));
-        // var params = new URLSearchParams();
-        // params.append('username', 'test4test4');
-        // params.append('password', 'Test4Test4');
-        // params.append('email', 'test4@nyu.edu');
-    
-        // axios.post('/users/register', params)
-        //   .then(res => console.log(res.data));
-        // axios
-        //     .post('users/register', params)
-        //     .then((res) => console.log(res.data));
-
-        // React.useEffect(() => {
-        //     fetch("/users/register")
-        //       .then((res) => res.json())
-        //       .then((data) => setData(data.message));
-        // }, []);
+        var params = new URLSearchParams();
+        params.append('username', user.username);
+        params.append('password', user.password);
+        params.append('email', user.email);
+        axios.post('http://localhost:3000/users/register', params)
+            .then(console.log(params));
+        
     }
 
   render(){
