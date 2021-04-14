@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const session = require('express-session');
+const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
 const cors = require("cors");
@@ -10,17 +10,18 @@ const app = express();
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use(session({
-//     secret: 'add session secret here!',
-//     resave: false,
-//     saveUninitialized: true,
-// }));
+app.use(session({
+     secret: 'add session secret here!',
+     resave: false,
+     saveUninitialized: true,
+}));
 app.use(cors());
 
 app.use(express.static('./build'));
 app.use('/register', express.static('./build'));
 app.use('/complete-user-information', express.static('./build'));
 app.use('/login', express.static('./build'));
+
 // const uri = 'mongodb://localhost/cs-online-courses';
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 // const connection = mongoose.connection;

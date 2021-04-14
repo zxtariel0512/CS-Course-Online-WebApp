@@ -10,13 +10,27 @@ router.route('/register').post(async(req, res) => {
         password: req.body.password
     }
     let newUser = await User.create(user);
-    await newUser.save();
-    res.json(newUser);
-    // res.redirect('/complete-user-information');
+    await newUser.save((err, user)=>{
+        if (err){
+            console.log("DOCUMENT SAVE ERROR");
+        }else{
+            req.session.regenerate((err)=>{
+                if(!err){
+                    req.session.user=user;
+                    res.json(newUser);
+                    //res.redirect('/complete-user-information');
+                }else{
+                    console.log("SESSION CANNOT START");
+                }
+            })
+        }
+    });
 })
 
-router.route('/:username').put(async(req, res) => {
-    let target = await User.findOne({username: req.params.username});
+router.route('/updateUserProfile').put(async(req, res) => {
+    const username = req.session.user.username;
+    console.log(username);
+    let target = await User.findOne({username: username});
     await target.update(req.body);
     res.json(target);
 })

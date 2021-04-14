@@ -4,9 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
 
 export default class CompleteUserInformation extends Component{
 
@@ -87,8 +85,8 @@ export default class CompleteUserInformation extends Component{
     params.append("facebook", this.state.fb);
     params.append("phone", this.state.phone);
     
-     axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
-    // axios.put(`http://localhost:3000/users/${cookies.get('username')}`, params);
+     //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
+     axios.put('http://localhost:3000/users/updateUserProfile', params);
   }
 
   render(){

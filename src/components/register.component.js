@@ -4,9 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
+// const cookies = new Cookies();
 
 
 export default class Register extends Component{
@@ -48,17 +47,17 @@ export default class Register extends Component{
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
-            firstName: this.state.username
         }
-        cookies.set('username', this.state.username);
+        //document.cookie =  `username=${user.username}`;
         var params = new URLSearchParams();
         params.append('username', user.username);
         params.append('password', user.password);
         params.append('email', user.email);
-        axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
-        // axios.post('http://localhost:3000/users/register', params)
+       // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
+         axios.post('http://localhost:3000/users/register', params)
             .then(console.log(params));
         window.location = '/complete-user-information';
+        
         
       }
 

@@ -10,6 +10,7 @@
     "bootstrap": "^4.6.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mongoose": "^5.12.3",
     "path": "^0.12.7",
     "react": "^17.0.2",
@@ -45,5 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://linserv1.cims.nyu.edu:11123"
+  "proxy": "http://localhost:3000"
 }
