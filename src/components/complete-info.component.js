@@ -89,6 +89,7 @@ export default class CompleteUserInformation extends Component{
     
      axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
     // axios.put(`http://localhost:3000/users/${cookies.get('username')}`, params);
+    cookies.remove('username');
   }
 
   render(){
