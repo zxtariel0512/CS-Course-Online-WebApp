@@ -50,6 +50,6 @@ const userRouter = require('./routes/user.js');
 app.use('/users', userRouter);
 // app.use('/courses', courseRouter);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 4000, () => {
     console.log('Server is running');
 });

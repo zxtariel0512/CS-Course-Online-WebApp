@@ -5,7 +5,74 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
-export default class CompleteUserInformation extends Component{
+
+export default class Register extends Component{
+
+    constructor(props) {
+        super(props);
+    
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    
+        this.state = {
+          username: '',
+          password: '',
+          email: ''
+        }
+      }
+    
+      onChangeUsername(e) {
+        this.setState({
+          username: e.target.value
+        })
+      }
+      onChangePassword(e) {
+        this.setState({
+          password: e.target.value
+        })
+      }
+      onChangeEmail(e) {
+        this.setState({
+          email: e.target.value
+        })
+      }
+    
+      onSubmit(e) {
+        e.preventDefault();
+        const user = {
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email
+        }
+        // var params = new URLSearchParams();
+        // params.append('username', 'test4test4');
+        // params.append('password', 'Test4Test4');
+        // params.append('email', 'test4@nyu.edu');
+        // fetch('/users/register', {
+        //     method: 'POST',
+        //     body: {"username": 'test4test4', "email": 'test4@nyu.edu', "password": 'Test4Test4'}
+        // })
+        axios.post('http://localhost:3000/users/register', user)
+            .then(console.log(user));
+        // var params = new URLSearchParams();
+        // params.append('username', 'test4test4');
+        // params.append('password', 'Test4Test4');
+        // params.append('email', 'test4@nyu.edu');
+    
+        // axios.post('/users/register', params)
+        //   .then(res => console.log(res.data));
+        // axios
+        //     .post('users/register', params)
+        //     .then((res) => console.log(res.data));
+
+        // React.useEffect(() => {
+        //     fetch("/users/register")
+        //       .then((res) => res.json())
+        //       .then((data) => setData(data.message));
+        // }, []);
+    }
 
   render(){
     return (
@@ -13,7 +80,7 @@ export default class CompleteUserInformation extends Component{
         <h1 style={{textAlign:'center'}}>Welcome to CSLOL!</h1>
         <p style={{textAlign:'center'}}>Register first to enroll and start your fantastic courses!</p>
         <p class='secondaryText'>* are required information</p>
-        <Form>
+        <Form onSubmit={this.onSubmit}>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email<span id='required'>*</span></Form.Label>
@@ -21,6 +88,8 @@ export default class CompleteUserInformation extends Component{
                     required
                     type='email'
                     placeholder="Enter your email address..."
+                    value={this.state.email}
+                    onChange={this.onChangeEmail}
                 />
                 <Form.Text className="text-muted">
                     Please enter a valid email address that you use in your daily life. Later there will be a confirmation email sent to you, and you need to confirm that email in order to complete your registration.
@@ -35,6 +104,8 @@ export default class CompleteUserInformation extends Component{
                     required
                     type='text'
                     placeholder="Enter your username..."
+                    value={this.state.username}
+                    onChange={this.onChangeUsername}
                 />
                 <Form.Text className="text-muted">
                     Your username must have length at least 8.
@@ -49,6 +120,8 @@ export default class CompleteUserInformation extends Component{
                     required
                     type='text'
                     placeholder="Enter your password..."
+                    value={this.state.password}
+                    onChange={this.onChangePassword}
                 />
                 <Form.Text className="text-muted">
                     Your password must have length at least 8. It must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number.
@@ -57,7 +130,7 @@ export default class CompleteUserInformation extends Component{
             </Form.Row>
 
           
-          <div id='submitBtn'>
+          <div id='submitBtn' >
             <Button variant="primary" type="submit">
               Register!
             </Button>
