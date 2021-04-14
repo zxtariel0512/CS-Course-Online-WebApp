@@ -9,7 +9,7 @@ export default class CompleteUserInformation extends Component{
 
   render(){
     return (
-      <div class='fillInfo'>
+      <div class='mediumPanel'>
         <h2>Fill up some information so that your teachers and classmates can know you better!</h2>
         <p class='secondaryText'>* are required information</p>
         <Form>
