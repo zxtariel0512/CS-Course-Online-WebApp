@@ -86,7 +86,7 @@ export default class CompleteUserInformation extends Component{
     params.append("phone", this.state.phone);
     
      //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
-     axios.put('http://localhost:3000/users/updateUserProfile', params);
+     axios.put('http://linserv1.cims.nyu.edu:11123/users/updateUserProfile', params);
   }
 
   render(){
