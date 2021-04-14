@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     confirmed: {
-        type: boolean,
+        type: Boolean,
         default: false
     },
     courses: [{
@@ -28,12 +28,10 @@ const userSchema = new mongoose.Schema({
     instagram: String,
     facebook: String,
     firstName: {
-        type: String,
-        require: true
+        type: String
     },
     lastName: {
-        type: String,
-        require: true
+        type: String
     },
     Age: String,
     preferredPron: String
