@@ -62,6 +62,7 @@ export default class Register extends Component{
       }
 
   render(){
+    {{cookies.remove('username');}}
     return (
       <div class='mediumPanel'>
         <h1 style={{textAlign:'center'}}>Welcome to CSLOL!</h1>

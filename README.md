@@ -1,5 +1,8 @@
 # CSLOL
 
+## Update on Milestone
+[Here is a link to the github repo that contains research progress on React.js and Bootstrap](src/components)
+
 ## Overview
 CSLOL is a web application which serves for a **mocking** "non-school school" educational institution that specifically teaches computer science. Here, the "non-school school" means that on one hand, it provides high-quality computer science courses, either online or offline, and contains high-quality teaching resources that would take responsibility of designing couress and assignments, grading homework, making exams, etc. On the other hand, different from official schools, it has not requirement on students' previous educational background, and is open to people at all ages. It has less requirements than official schools, but provides as good education as official schools!
 
@@ -23,12 +26,12 @@ An example of User:
 ```
 {
     username: 'zxtariel',  
-    firstname: 'Xintong',
-    lastname: 'Zhu',
+    firstname: 'Xintong', //optional
+    lastname: 'Zhu', //optional
     gender: 'female',//optional
     password: //hash,
     email: 'zxt@gmail.com',
-    confirmed: true,
+    confirmed: true, //default false
     courses: ['Theory of Computation', 'Computer System Organizations', 'Applied Internet Technologies'],
     phone: '9283839999', //optional
     instagram: 'zxtlll', //optional
@@ -65,7 +68,17 @@ An example of Review:
 
 ## Wireframes
 
-**Some are finished in photoshop, and some are finished in hand drawings.**
+**Login, Registration, and Complete-Profile-Info pages are finished.**
+
+**Rest are generated as draft in milestone 1.**
+
+### /login - log in page, prompt user for username and password
+
+![](./documentation/login.png)
+
+### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
+
+![](./documentation/register.png)
 
 ### / - main page, redirect to /courses
 
@@ -82,14 +95,6 @@ An example of Review:
 ### /price-and-rule - contains information about the prices, tuition, and tutorial of this web application (course registration)
 
 ![](./documentation/price&rule.png)
-
-### /login - log in page, prompt user for username and password
-
-![](./documentation/login.png)
-
-### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
-
-![](./documentation/register.png)
 
 ### /courses/slug - page for specific course that contains information of that course, reviews, and enroll option. slug would be the course's name.
 
@@ -132,15 +137,17 @@ An example of Review:
 
 ## Research Topics
 * (4 points) React.js
-    * Plan to have a thorough self-learning on React.js, so that I can use MERN stack (MongoDB, Express.js, React.js, and Node.js) to finish this project.
-    * Plan to integrate some relatively fancier web pages, compared to those in assignments.
-    * Plan to study how to use React.js along with Node.js to create web application.
+    * Having a thorough self-learning on React.js, so that I can use MERN stack (MongoDB, Express.js, React.js, and Node.js) to finish this project.
+    * Attempting to integrate some relatively fancier web pages, compared to those in assignments.
+    * Attempting to study how to use React.js along with Node.js to create web application.
 * (3 points) Server side authentication: confirmation email
     * Plan to use either aws-amplify or Nodemailer to realize the confirmation functionality: after entering email address in registering process, the user needs to confirm their email address before formally being registered.
-* (2 points) Client side authentication
-    * Plan to do this on my own via printing out different kinds of error messages (e.g.: password format incorrect, invalid email address, username too short, etc) on the web page and re-prompt the user for input.
+* (2 points) Bootstrap
+    * Using bootstrap for some frontend elements decorations, such as forms and buttons.
 * (3 points) Use some payment API, such as Paypal.api, to realize payment functionality
     * Enable user to pay for their courses online.
+* (3 points) aws-amplify
+    * Plan to study aws-amplify on my own for user authentication (or maybe also confirmation email).
 
 12 points total out of 8.
 
@@ -151,3 +158,6 @@ An example of Review:
 * [Tutorial of React.js](https://www.youtube.com/watch?v=Ke90Tje7VS0)
 * [Tutorial of MERN Stack](https://www.youtube.com/watch?v=7CqJlxBYj-M&t=5568s)
 * [Markdown language cheatsheet](https://www.markdownguide.org/cheat-sheet/)
+* [Tutorial for bootstrap in react.js](https://react-bootstrap.netlify.app/components/forms/)
+* [Tutorial for AWS-Amplify for user authentication](https://blog.logrocket.com/authentication-react-apps-aws-amplify-cognito/)
+* [Tutorial for AWS-Amplify for user authentication](https://cloud.google.com/api-gateway/docs/authenticating-users-jwt#:~:text=To%20authenticate%20a%20user%2C%20a,API%20to%20process%20the%20authentication.)
