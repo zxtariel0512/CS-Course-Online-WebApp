@@ -52,6 +52,7 @@ export default class Register extends Component{
         params.append('email', user.email);
         axios.post('http://localhost:3000/users/register', params)
             .then(console.log(params));
+        // window.location = 'http://localhost:3000/complete-user-information';
         
     }
 
