@@ -2,6 +2,7 @@
 
 ## Update on Milestone
 [Here is a link to the github repo that contains research progress on React.js and Bootstrap](src/components)
+[Here is a link to the form (that is not registration or login)](src/components/complete-user-information.component.js)
 
 ## Overview
 CSLOL is a web application which serves for a **mocking** "non-school school" educational institution that specifically teaches computer science. Here, the "non-school school" means that on one hand, it provides high-quality computer science courses, either online or offline, and contains high-quality teaching resources that would take responsibility of designing couress and assignments, grading homework, making exams, etc. On the other hand, different from official schools, it has not requirement on students' previous educational background, and is open to people at all ages. It has less requirements than official schools, but provides as good education as official schools!
@@ -79,6 +80,9 @@ An example of Review:
 ### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
 
 ![](./documentation/register.png)
+
+### /complete-user-information - after user registers their account, enter this page to fill up information for their profile
+![](./documentation/fillUpProfile.png)
 
 ### / - main page, redirect to /courses
 
