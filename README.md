@@ -70,7 +70,7 @@ An example of Review:
 
 ## Wireframes
 
-**Login, Registration, and Complete-Profile-Info pages are finished.**
+**Login, Registration, Complete-Profile-Info, and Profile pages are finished.**
 
 **Rest are generated as draft in milestone 1.**
 
@@ -84,6 +84,10 @@ An example of Review:
 
 ### /complete-user-information - after user registers their account, enter this page to fill up information for their profile
 ![](./documentation/fillUpProfile.png)
+
+### /username/profile - personal profile of current user. (May contain 'drop' utility, which is not displayed now so far.)
+
+![](./documentation/profile.png)
 
 ### / - main page, redirect to /courses
 
@@ -112,10 +116,6 @@ An example of Review:
 ### /courses/slug/reviews/post - post a review to a specific course (required login status)
 
 ![](./documentation/review.png)
-
-### /username/profile - personal profile of current user. (May contain 'drop' utility, which is not displayed now so far.)
-
-![](./documentation/profile.png)
 
 ### /payment - payment page (may change depending on which API to use finally)
 
