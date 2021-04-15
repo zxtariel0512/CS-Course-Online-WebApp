@@ -14,7 +14,7 @@ export default class Profile extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://localhost:3000/users/loginUser')
+        axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser')
             .then(response => {
                 this.setState({user: response.data})
             })
@@ -24,8 +24,6 @@ export default class Profile extends Component{
         return (
 
         <div class='Profile'>
-        <h1 style={{textAlign:'center'}}>Profile</h1>
-        <p style={{textAlign:'center'}}>Great! You are now a formal member of this CS family!</p>
         
 
         <div class="page-content page-container" id="page-content">
@@ -37,36 +35,62 @@ export default class Profile extends Component{
                                 <div class="col-sm-4 bg-c-lite-green user-profile">
                                     <div class="card-block text-center text-white">
                                         <div class="m-b-25"> 
-                                            <img src="https://www.google.com/search?q=computer%20cute%20icon&tbm=isch&tbs=isz:i&rlz=1C5CHFA_enUS897US897&hl=en&sa=X&ved=0CAMQpwVqFwoTCMCQpuLe_u8CFQAAAAAdAAAAABAI&biw=1425&bih=701#imgrc=cgQuXIECgIpc0M" class="img-radius" alt="User-Profile-Image" />
+                                            <img src="https://icon-library.com/images/cute-computer-icon/cute-computer-icon-5.jpg" class="img-radius" width="70%" alt="User-Profile-Image" />
                                         </div>
-                                        <h6 class="f-w-600">{this.state.user[0].username}</h6>
-                                        <p>Web Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                        <h6 class="f-w-600" id='username'>{this.state.user.username}</h6>
+                                        <p style={{color:'white',size:'large',fontWeight:'bold'}}>Welcome to CSLOL!</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="card-block">
-                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600" style={{fontSize:'x-large'}}>Information</h6>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">First Name</p>
+                                                <h6 class="f-w-400">{this.state.user.firstName}</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Last Name</p>
+                                                <h6 class="f-w-400">{this.state.user.lastName}</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Age</p>
+                                                <h6 class="f-w-400">{this.state.user.Age}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Gender</p>
+                                                <h6 class="f-w-400">{this.state.user.gender}</h6>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Preferred Prouns</p>
+                                                <h6 class="f-w-400">{this.state.user.preferredPron}</h6>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Email</p>
-                                                <h6 class="text-muted f-w-400">rntng@gmail.com</h6>
+                                                <h6 class="f-w-400">{this.state.user.email}</h6>
                                             </div>
                                             <div class="col-sm-6">
                                                 <p class="m-b-10 f-w-600">Phone</p>
-                                                <h6 class="text-muted f-w-400">98979989898</h6>
+                                                <h6 class="f-w-400">{this.state.user.phone}</h6>
                                             </div>
                                         </div>
-                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Recent</p>
-                                                <h6 class="text-muted f-w-400">Sam Disuja</h6>
+                                                <p class="m-b-10 f-w-600">Instagram</p>
+                                                <h6 class="f-w-400">{this.state.user.instagram}</h6>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="m-b-10 f-w-600">Most Viewed</p>
-                                                <h6 class="text-muted f-w-400">Dinoter husainm</h6>
+                                                <p class="m-b-10 f-w-600">FaceBook</p>
+                                                <h6 class="f-w-400">{this.state.user.facebook}</h6>
                                             </div>
                                         </div>
+                                        
+                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Courses</h6>
+                                        <h6 class="text-muted f-w-400">Your course list is so far empty...Let's go and enroll some!</h6>
                                         <ul class="social-link list-unstyled m-t-40 m-b-10">
                                             <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
                                             <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>

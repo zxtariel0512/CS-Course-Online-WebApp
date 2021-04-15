@@ -95,9 +95,10 @@ export default class CompleteUserInformation extends Component{
     
      //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
       //axios.put("/users/profile/h", params).then(console.log(params));
-      axios.put(`http://localhost:3000/users/updateUserProfile`, params)
+      axios.put(`http://linserv1.cims.nyu.edu:11123/users/updateUserProfile`, params)
        .then(console.log(params))
       //  .then(console.log(this.state.firstName))
+      this.props.history.push('/profile');
 
   }
 
@@ -142,25 +143,21 @@ export default class CompleteUserInformation extends Component{
           <Form.Row>
             <Form.Group as={Col} controlId="formGridGender">
               <Form.Label>Gender</Form.Label>
-              <Form.Control as="select">
+              <Form.Control as="select" onChange={this.onChangeGender}>
                 <option>Please select...</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-                value={this.state.gender}
-                onChange={this.onChangeGender}
+                <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
+                <option value='Other'>Other</option>
               </Form.Control>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPreferredPron">
               <Form.Label>Preferred pronouns</Form.Label>
-              <Form.Control as="select">
+              <Form.Control as="select" onChange={this.onChangePron}>
                 <option>Please select...</option>
-                <option>He/Him/His</option>
-                <option>She/Her/Hers</option>
-                <option>Other</option>
-                value={this.state.pron}
-                onChange={this.onChangePron}
+                <option value='He/Him/His'>He/Him/His</option>
+                <option value='She/Her/Hers'>She/Her/Hers</option>
+                <option value='Other'>Other</option>
               </Form.Control>
             </Form.Group>
           </Form.Row>

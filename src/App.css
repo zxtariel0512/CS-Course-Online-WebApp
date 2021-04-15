@@ -81,12 +81,10 @@ Form{
 
 
 
-body {
-  background-color: #f9f9fa
-}
+
 
 .padding {
-  padding: 3rem !important
+  padding: 3rem !important;
 }
 
 .user-card-full {
@@ -98,12 +96,23 @@ body {
   -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   border: none;
-  margin-bottom: 30px
+  margin-left: -100px;
+  width: 700px;
+  margin-top:100px;
 }
 
 .m-r-0 {
   margin-right: 0px
 }
+
+.f-w-600{
+  font-size:medium;
+}
+.f-w-400{
+  font-size:medium;
+  color:rgb(97, 96, 96);
+}
+
 
 .m-l-0 {
   margin-left: 0px
@@ -114,8 +123,8 @@ body {
 }
 
 .bg-c-lite-green {
-  background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-  background: linear-gradient(to right, #ee5a6f, #f29263)
+  background: -webkit-gradient(linear, left top, right top, from(#e6eef3), to(#2a7fce));
+  background: linear-gradient(to right, #86def1, #4a8da8)
 }
 
 .user-profile {
@@ -135,7 +144,7 @@ body {
 }
 
 h6 {
-  font-size: 14px
+  font-size: 14px;
 }
 
 .card .card-block p {
@@ -146,6 +155,10 @@ h6 {
   p {
       font-size: 14px
   }
+}
+
+#username{
+  font-size:xx-large
 }
 
 .card-block {
@@ -173,7 +186,8 @@ h6 {
 }
 
 .text-muted {
-  color: #919aa3 !important
+  color: #919aa3;
+  font-size: small
 }
 
 .b-b-default {
@@ -214,3 +228,5 @@ h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out
 }
+
+
