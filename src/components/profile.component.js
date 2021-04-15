@@ -5,6 +5,20 @@ import axios from 'axios';
 export default class Profile extends Component{
 
     // axios.get('http://localhost:3000/users/loginUser');
+
+    constructor(props){
+        super(props);
+        this.state = {
+            user:{}
+        }
+    }
+
+    componentDidMount(){
+        axios.get('http://localhost:3000/users/loginUser')
+            .then(response => {
+                this.setState({user: response.data})
+            })
+    }
     
     render(){
         return (
@@ -25,7 +39,7 @@ export default class Profile extends Component{
                                         <div class="m-b-25"> 
                                             <img src="https://www.google.com/search?q=computer%20cute%20icon&tbm=isch&tbs=isz:i&rlz=1C5CHFA_enUS897US897&hl=en&sa=X&ved=0CAMQpwVqFwoTCMCQpuLe_u8CFQAAAAAdAAAAABAI&biw=1425&bih=701#imgrc=cgQuXIECgIpc0M" class="img-radius" alt="User-Profile-Image" />
                                         </div>
-                                        <h6 class="f-w-600">Hembo Tingor</h6>
+                                        <h6 class="f-w-600">{this.state.user[0].username}</h6>
                                         <p>Web Designer</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                     </div>
                                 </div>

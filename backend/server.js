@@ -11,10 +11,21 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(session({
-     secret: 'add session secret here!',
-     resave: false,
+     secret: 'secret',
+     httpOnly:true,
+     resave: true,
      saveUninitialized: true,
+     secure:false
 }));
+// app.use(cookieSession({
+//     name: 'session'
+//     , secret: "secret"
+//     , httpOnly: true
+//     , maxAge: 30 * 60 * 1000
+//     , secure: false
+//     , overwrite: false
+// }));
+// app.use('/session', session);
 app.use(cors());
 
 app.use(express.static('./build'));
@@ -29,6 +40,10 @@ app.use('/profile', express.static('./build'));
 // connection.once('open', () => {
 //     console.log("MongoDB database connection established successfully");
 // });
+app.use((req, res, next) =>{
+    res.locals.user = req.session.user;
+    next();
+});
 
 // is the environment variable, NODE_ENV, set to PRODUCTION? 
 let dbconf;

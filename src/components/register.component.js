@@ -50,13 +50,15 @@ export default class Register extends Component{
         }
         //document.cookie =  `username=${user.username}`;
         var params = new URLSearchParams();
+        console.log(user.username + " " + user.password);
         params.append('username', user.username);
         params.append('password', user.password);
         params.append('email', user.email);
        // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
-         axios.post('http://llinserv1.cims.nyu.edu:11123/users/register', params)
-            .then(console.log(params));
-        window.location = '/complete-user-information';
+         axios.post('http://localhost:3000/users/register', params)
+            .then(console.log(params))
+            // .then(window.location = '/complete-user-information');
+        this.props.history.push('/complete-user-information');
         
         
       }

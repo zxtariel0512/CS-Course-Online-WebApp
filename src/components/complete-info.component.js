@@ -22,6 +22,7 @@ export default class CompleteUserInformation extends Component{
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
+      //user: {},
       fistName: '',
       lastName: '',
       age: '',
@@ -32,6 +33,13 @@ export default class CompleteUserInformation extends Component{
       fb: ''
     }
   }
+
+  // componentDidMount() {
+  //   axios.get('http://localhost:3000/users/loginUser')
+  //     .then(response => {
+  //       this.setState({ user: response.data })
+  //     })
+  // }
 
   onChangeFirstName(e) {
     this.setState({
@@ -76,9 +84,9 @@ export default class CompleteUserInformation extends Component{
   onSubmit(e) {
     e.preventDefault();
     var params = new URLSearchParams();
-    params.append("firstName", this.state.firstName);
-    params.append("lastName", this.state.lastName);
-    params.append("Age", this.state.age);
+    params.append('firstName', this.state.firstName);
+    params.append('lastName', this.state.lastName);
+    params.append('Age', this.state.age);
     params.append("gender", this.state.gender);
     params.append("preferredPron", this.state.pron);
     params.append("instagram", this.state.ins);
@@ -86,7 +94,11 @@ export default class CompleteUserInformation extends Component{
     params.append("phone", this.state.phone);
     
      //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
-     axios.put('http://linserv1.cims.nyu.edu:11123/users/updateUserProfile', params);
+      //axios.put("/users/profile/h", params).then(console.log(params));
+      axios.put(`http://localhost:3000/users/updateUserProfile`, params)
+       .then(console.log(params))
+      //  .then(console.log(this.state.firstName))
+
   }
 
   render(){
