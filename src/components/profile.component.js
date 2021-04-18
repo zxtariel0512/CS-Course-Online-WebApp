@@ -14,7 +14,7 @@ export default class Profile extends Component{
     }
 
     componentDidMount(){
-        axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser')
+        axios.get('http://localhost:3000/users/loginUser')
             .then(response => {
                 this.setState({user: response.data})
             })
