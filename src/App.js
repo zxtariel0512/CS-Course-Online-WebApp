@@ -11,40 +11,67 @@ import Main from "./components/main.component.js"
 import { AuthContext } from './context/auth-context';
 import axios from 'axios';
 
+let logoutTimer;
+
 const App = (props) => {
 
   const [token, setToken] = useState(false);
   const [username, setUsername] = useState(false);
+  const [tokenExpirationDate, setTokenExpirationDate] = useState();
 
   const login = useCallback((username, token, expirationDate) => {
     setToken(token);
     setUsername(username);
     // setIsloading(false)
-    // const tokenExpirationDate =
-    //   expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
-    // setTokenExpirationDate(tokenExpirationDate);
+    const tokenExpirationDate =
+      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    setTokenExpirationDate(tokenExpirationDate);
     localStorage.setItem(
       'userData',
       JSON.stringify({
         username: username,
         token: token,
-        // expiration: tokenExpirationDate.toISOString()
+        expiration: tokenExpirationDate.toISOString()
       })
+    );
+    localStorage.setItem(
+      'token',
+      token
     );
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
   }, []);
+
+  const logout = useCallback(() => {
+    setToken(null);
+    setTokenExpirationDate(null);
+    setUsername(null);
+    localStorage.removeItem('userData');
+    localStorage.removeItem('profileData');
+    let token = null
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+  }, []);
+
+  useEffect(() => {
+    if (token && tokenExpirationDate) {
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [token, logout, tokenExpirationDate]);
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'));
     // setIsloading(false)
     if (
       storedData &&
-      storedData.token // &&
-      // new Date(storedData.expiration) > new Date()
+      storedData.token &&
+      new Date(storedData.expiration) > new Date()
     ) {
-      // login(storedData.userId, storedData.token, new Date(storedData.expiration));
-      login(storedData.username, storedData.token);
+      login(storedData.userId, storedData.token, new Date(storedData.expiration));
+      // login(storedData.username, storedData.token);
     }
   }, [login]);
 
@@ -55,7 +82,7 @@ const App = (props) => {
         token: token,
         username: username,
         login: login,
-        // logout: logout
+        logout: logout
       }}
     >
       <div className="container">
@@ -65,18 +92,14 @@ const App = (props) => {
           <div className="container">
           {/* <Navbar />
           <br/> */}
-          {token ? <Route path="/complete-user-information" exact component={CompleteUserInformation} /> : <Redirect to='/login' />}
+          <Route path="/complete-user-information" exact component={CompleteUserInformation} />
           <Route path="/register" exact component={Register} />
           <Route path="/login" exact component={Login} />
-          {token ? <Route path="/profile" exact component={Profile} /> : <Redirect to='/login' />}
-          {token ? <Route path='/' exact component={Main} /> : <Redirect to='/login' />}
+          <Route path="/profile" exact component={Profile} />
+          <Route path='/' exact component={Main} />
           </div>
         </Router>
-          {/* <SocialMedia /> */}
-          {/* <Footer /> */}
-        {/* </main> */}
-        {/* {loading} */}
-
+          
       </div>
     </AuthContext.Provider>
   );

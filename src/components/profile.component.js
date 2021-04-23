@@ -16,7 +16,11 @@ export default class Profile extends Component{
 
     componentDidMount(){
         // try{
-            axios.get('http://localhost:3000/users/loginUser')
+            axios.get('http://localhost:3000/users/loginUser', {
+                headers:{
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                }
+            })
             .then(response => {
                 this.setState({user: response.data, init:1})
             })
