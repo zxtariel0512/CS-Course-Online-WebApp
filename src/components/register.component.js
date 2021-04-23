@@ -127,7 +127,7 @@ export default class Register extends Component{
           </div>
         </Form>
 
-        <p style={{textAlign:'center', marginTop:30}}>Already have an account? <a href='/login'>Then login now!</a></p>
+        <p style={{textAlign:'center', marginTop:30}}>Already have an account? <a href='/'>Then login now!</a></p>
       </div>
       
     )
