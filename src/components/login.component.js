@@ -53,11 +53,13 @@ export default class CompleteUserInformation extends Component{
         //     isloading: false
         // }))
         // this.props.history.push('/')
-        auth.login(response.data.username, response.data.token);
+        
         if(response.data.confirmed === false){
           this.props.history.push('/complete-user-information');
+          auth.login(response.data.username, response.data.token);
         } else{
           this.props.history.push('/');
+          auth.login(response.data.username, response.data.token);
         }
         // return Axios.get('/profile/viewprofile')
       })

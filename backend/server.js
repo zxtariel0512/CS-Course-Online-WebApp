@@ -69,10 +69,10 @@ connection.once('open', () => {
 
 // here comes the routes
 const userRouter = require('./routes/user.js');
-// const courseRouter = require('./routes/course.js');
+const courseRouter = require('./routes/course.js');
 
 app.use('/users', userRouter);
-// app.use('/courses', courseRouter);
+app.use('/courses', courseRouter);
 
 app.listen(process.env.PORT || 3000, () => {
     if(process.env.PORT){

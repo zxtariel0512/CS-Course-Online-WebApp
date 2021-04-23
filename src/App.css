@@ -5,6 +5,8 @@
 body{
   font-family:Gill Sans, sans-serif;
   background-image: url('./public/img/main-background.jpeg');
+  height:100%;
+  width:100%;
 }
 
 .App-logo {
@@ -52,10 +54,10 @@ body{
   padding-right: 200px; */
   margin: auto;
   padding: 40px;
-  width: 60%;
+  width: 40%;
   background: white;
   height: fit-content;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: 100px;
   border-radius: 10px;
   box-shadow: 10px 10px 10px
@@ -96,7 +98,6 @@ Form{
   -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   border: none;
-  margin-left: -100px;
   width: 700px;
   margin-top:100px;
 }
@@ -123,8 +124,8 @@ Form{
 }
 
 .bg-c-lite-green {
-  background: -webkit-gradient(linear, left top, right top, from(#e6eef3), to(#2a7fce));
-  background: linear-gradient(to right, #86def1, #4a8da8)
+  background: -webkit-gradient(linear, left top, right top, from(#4376e4), to(#eaebaf));
+  background: linear-gradient(to right, #eaebaf, #5daab8)
 }
 
 .user-profile {
@@ -228,5 +229,44 @@ h6 {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out
 }
+
+.container{
+  /* width:120%; */
+  max-width:100%;
+  padding:0px;
+  /* margin-left:0px;
+  padding-left:0px;
+  padding-right:0px;
+  width: 200%; */
+}
+
+
+
+.courses{
+  width:100%;
+  height:100%;
+  border-color:darkmagenta;
+  background-color:rgba(255, 255, 255, 0.685);  
+  margin-top:0px;
+  padding: 30px;
+  padding-left: 100px;
+  padding-right:100px;
+  display: inline-block;
+  margin-top: 400px;
+}
+
+#course-card{
+  background: -webkit-gradient(linear, left top, right top, from(#4376e4), to(#eaebaf));
+  background: linear-gradient(to right, #eaebaf, #4baabb);
+  margin-top: 50px;
+}
+
+
+
+.mb-2{
+  color: white;
+  font-size: medium;
+}
+
 
 

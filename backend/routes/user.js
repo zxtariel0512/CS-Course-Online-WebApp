@@ -75,7 +75,7 @@ router.route('/updateProfile').put(checkAuth, async(req, res) => {
     // }
     // const username = req.session.user.username;
     const username = req.userData.username;
-    console.log(username);
+    // console.log(username);
     req.body.confirmed = true;
     let updatedUser = await User.findOneAndUpdate({username: username}, req.body);
     res.json(updatedUser);
@@ -86,21 +86,31 @@ router.route('/updateProfile').put(checkAuth, async(req, res) => {
 //     res.json(updatedUser);
 // })
 
+// router.route('/check/login').get(async(req, res) =>{
+//   // console.log(req.userData);
+//   console.log(req.user);
+//   res.json(req.user);
+// })
+
 router.route('/loginUser').get(checkAuth, async(req, res) =>{
     // while(req.session.user === undefined){
     //     console.log("waiting for sessin user to exist -- login User");
     //     break;
     // }
     // const username = req.session.user.username;
-    const username = req.userData.username;
-    let target = await User.findOne({username: username});
-    res.json(target);
+
+      const username = req.userData.username;
+      let target = await User.findOne({username: username});
+      console.log("target:");
+      console.log(target);
+      res.json(target);
+
+    
 })
 
 router.post("/login", (req, res) => {
-    console.log('yeah');
     let fetchedUser;
-    console.log(req.body.username);
+    // console.log(req.body.username);
     User.findOne({username:req.body.username})
         .then(user=>{
         if(!user){
@@ -113,7 +123,7 @@ router.post("/login", (req, res) => {
         return bcrypt.compare(req.body.password, user.password);
         })
             .then(result=>{
-                console.log(fetchedUser)
+                // console.log(fetchedUser)
                 if(!result){
                     console.log("Auth failed incorect password");
                     return res.status(401).json({
@@ -126,6 +136,7 @@ router.post("/login", (req, res) => {
                     { expiresIn: "5h" }
                 );
                 // console.log(token);
+                // req.user = fetchedUser;
                 res.status(200).json({
                     token: token,
                     expiresIn: 3600,
