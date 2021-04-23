@@ -109,7 +109,7 @@ export default class Profile extends Component{
                                                 
                                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Courses</h6>
                                                 <h6 class="text-muted f-w-400">Your course list is so far empty...Let's go and enroll some!</h6>
-                                                <p style={{textAlign:'center', marginTop:30}}><a href='/courses'>Go and enroll more courses!</a></p>
+                                                <p style={{textAlign:'center', marginTop:30}}><a href='/main-courses'>Go and enroll more courses!</a></p>
                                                 <ul class="social-link list-unstyled m-t-40 m-b-10">
                                                     <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
                                                     <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
