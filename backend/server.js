@@ -31,8 +31,9 @@ app.use(cors());
 app.use(express.static('./build'));
 app.use('/register', express.static('./build'));
 app.use('/complete-user-information', express.static('./build'));
-app.use('/login', express.static('./build'));
+app.use('/main-courses', express.static('./build'));
 app.use('/profile', express.static('./build'));
+app.use('/enroll/:slug', express.static('./build'));
 
 // const uri = 'mongodb://localhost/cs-online-courses';
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });

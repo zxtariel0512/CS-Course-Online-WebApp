@@ -43,13 +43,21 @@ export default class Main extends Component{
         //     })
         // const response = axios.get('http://localhost:3000/courses');
         // this.setState({courses: response.data});
-        await axios.get("http://localhost:3000/courses/").then(response => {
+        await axios.get("http://linserv1.cims.nyu.edu:11123/courses/", {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then(response => {
             this.setState({courses: response.data, init: 1})
         })
         // await axios.get("http://localhost:3000/users/loginUser").then(response => {
         //     this.setState({user: response.data})
         // })
-        await axios.get("http://localhost:3000/users/loginUser").then(response => {
+        await axios.get("http://linserv1.cims.nyu.edu:11123/users/loginUser", {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then(response => {
             this.setState({user: response.data})
         })
         // await axios.get("http://localhost:3000/users/checkAuth").then(response => {
@@ -103,6 +111,7 @@ export default class Main extends Component{
                             <CardDeck>
                             {/* {console.log(this.state.courses)} */}
                             {this.state.courses.map(ele => {
+                                const enrollLink = `/enroll/${ele.slug}`;
                                 return (
                                     <div>
                                     <Card style={{ width: '27.5rem' }} id='course-card'>
@@ -114,7 +123,7 @@ export default class Main extends Component{
                                             <Card.Text style={{fontSize:'medium'}}>
                                             {ele.summary}
                                             </Card.Text>
-                                            <Card.Link href="#">Quick Enroll</Card.Link>
+                                            <Card.Link href={enrollLink}>Quick Enroll</Card.Link>
                                             <Card.Link href="#">More info</Card.Link>
                                         </Card.Body>
                                     </Card>
@@ -133,11 +142,11 @@ export default class Main extends Component{
                 <div>
                     <Container className='main-nav'>
                         <Navbar bg="light" sticky="top">
-                            <Navbar.Brand href="#home" style={{fontSize:'xxx-large'}}>CSLOL</Navbar.Brand>
+                            <Navbar.Brand href="/main-courses" style={{fontSize:'xxx-large'}}>CSLOL</Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="mr-auto">
-                                <Nav.Link href="#home" style={{fontSize:'xx-large'}}>Courses</Nav.Link>
+                                <Nav.Link href="/main-courses" style={{fontSize:'xx-large'}}>Courses</Nav.Link>
                                 {/* <Nav.Link href="#link" style={{fontSize:'xx-large'}}>Introduction</Nav.Link> */}
                                 <NavDropdown title="Introduction" id="basic-nav-dropdown" style={{fontSize:'xx-large'}}>
                                     <NavDropdown.Item href="#action/3.1" style={{fontSize:'large'}}>What is CSLOL?</NavDropdown.Item>
@@ -155,7 +164,7 @@ export default class Main extends Component{
                                         <Nav.Link href='/login'>Login</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item as="li" style={{fontSize:'x-large'}}>
-                                        <Nav.Link href='register'>Register</Nav.Link>
+                                        <Nav.Link href='/register'>Register</Nav.Link>
                                     </Nav.Item>
                                 </Nav>
                             </Navbar.Collapse>

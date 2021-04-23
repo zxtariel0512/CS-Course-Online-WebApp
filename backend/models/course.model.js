@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const URLSlugs = require('mongoose-url-slugs');
 
 const courseSchema = new mongoose.Schema({
     name: {
@@ -36,9 +37,11 @@ const courseSchema = new mongoose.Schema({
         ref: 'User',
         require: true
     }],
-    emailList:[{String}],
-    expectation:[{String}],
+    emailList:[{type: String}],
+    expectation:[{type: String}],
     summary: String
 });
+
+courseSchema.plugin(URLSlugs('name'));
 
 module.exports = mongoose.model('Course', courseSchema);

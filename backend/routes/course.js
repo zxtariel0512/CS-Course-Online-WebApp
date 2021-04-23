@@ -16,5 +16,20 @@ router.route('/add').post(async(req, res) => {
     res.json(course);
 })
 
+router.route('/:slug').get(async(req, res) => {
+    const course = await Course.findOne({slug: req.params.slug});
+    res.json(course);
+})
+
+router.route('/enroll/:slug').put(async(req, res) => {
+    const course = await Course.findOne({slug: req.params.slug});
+    course.students.push(req.body.user);
+    course.emailList.push(req.body.contactEmail);
+    course.expectation.push(req.body.expectation);
+    await course.save();
+    console.log(course);
+    res.json(course);
+})
+
 
 module.exports = router;

@@ -63,11 +63,32 @@ body{
   box-shadow: 10px 10px 10px
 }
 
+.largePanel{
+  /* padding: 70px;
+  padding-left: 200px;
+  padding-right: 200px; */
+  margin: auto;
+  padding: 40px;
+  width: 60%;
+  background: white;
+  height: fit-content;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px
+}
+
 
 #submitBtn{
   display: block;
   margin-top: 30px;
   margin-left: 260px;
+}
+
+#submitBtn-large{
+  display: block;
+  margin-top: 30px;
+  margin-left: 380px;
 }
 
 Form{

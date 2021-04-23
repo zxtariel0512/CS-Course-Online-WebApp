@@ -7,11 +7,12 @@ import CompleteUserInformation from "./components/complete-info.component.js";
 import Register from "./components/register.component.js";
 import Login from "./components/login.component.js";
 import Profile from "./components/profile.component.js";
-import Main from "./components/main.component.js"
+import Main from "./components/main.component.js";
+import Enroll from "./components/enroll.component.js";
 import { AuthContext } from './context/auth-context';
 import axios from 'axios';
 
-let logoutTimer;
+let logoutTimer
 
 const App = (props) => {
 
@@ -94,9 +95,10 @@ const App = (props) => {
           <br/> */}
           <Route path="/complete-user-information" exact component={CompleteUserInformation} />
           <Route path="/register" exact component={Register} />
-          <Route path="/login" exact component={Login} />
+          <Route path="/main-courses" exact component={Main} />
           <Route path="/profile" exact component={Profile} />
-          <Route path='/' exact component={Main} />
+          <Route path='/' exact component={Login} />
+          <Route path="/enroll/:slug" exact component={Enroll} />
           </div>
         </Router>
           
