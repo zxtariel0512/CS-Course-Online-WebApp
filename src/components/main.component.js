@@ -114,7 +114,7 @@ export default class Main extends Component{
                                 const enrollLink = `/enroll/${ele.slug}`;
                                 return (
                                     <div>
-                                    <Card style={{ width: '25rem' }} id='course-card'>
+                                    <Card style={{ width: '22rem' }} id='course-card'>
                                         <Card.Body>
                                             <Card.Title>{ele.name}</Card.Title>
                                             <Card.Subtitle className="mb-2" style={{textAlign:'right'}}>{ele.time}</Card.Subtitle>
