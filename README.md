@@ -11,7 +11,9 @@ Here are links to the github repo that contains research progress on using JWT t
 * [Authentication context](src/context)
 
 [Here is a link to the github repo that contains research progress on React.js and Bootstrap](src/components)
+
 [Here is a link to the github repo that contains research progress on using axios to connect backend and frontend](src/components)
+
 [Here is a link to the second form (that is not registration or login](src/components/enroll.component.js) (Please follow the instructions I wrote in the submit-assignment-form to test this form)
 
 Main courses page, quick enrollment page are finished.
@@ -69,7 +71,11 @@ An example of Course:
     time: 'Tue, Thu. 9:30-10:45',
     mode: 'online',
     location: 'N/A',
-    reviews: [5, 5, 4, 5, 5, 4]
+    reviews: [5, 5, 4, 5, 5, 4],
+    slug: applied-internet-tech,
+    students: [_id1, _id2, _id3],
+    emailList: [s1@nyu.edu, s2@nyu.edu, s3@yahoo.com],
+    expectation: ["I hope to learn more about Socket", "I hope this course can have a bit less homework"]
 }
 ```
 
