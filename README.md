@@ -1,9 +1,27 @@
 # CSLOL
 
 ## Update on Milestone
+### Milestone #3
+Here are links to the github repo that contains research progress on using JWT to do user authentication
+
+* [Backend](backend/middlewares)
+* [routes](backend/routes/user.js)
+* [Login component](src/components/login.component.js)
+* [Register component](src/components/register.component.js)
+* [Authentication context](src/context)
+
+[Here is a link to the github repo that contains research progress on React.js and Bootstrap](src/components)
+[Here is a link to the github repo that contains research progress on using axios to connect backend and frontend](src/components)
+[Here is a link to the second form (that is not registration or login](src/components/enroll.component.js) (Please follow the instructions I wrote in the submit-assignment-form to test this form)
+
+Main courses page, quick enrollment page are finished.
+
+### Milestone #2
 [Here is a link to the github repo that contains research progress on React.js and Bootstrap](src/components)
 
 [Here is a link to the form (that is not registration or login)](src/components/complete-info.component.js)
+
+Login, Registration, Complete-Profile-Info, and Profile pages are finished.
 
 ## Overview
 CSLOL is a web application which serves for a **mocking** "non-school school" educational institution that specifically teaches computer science. Here, the "non-school school" means that on one hand, it provides high-quality computer science courses, either online or offline, and contains high-quality teaching resources that would take responsibility of designing couress and assignments, grading homework, making exams, etc. On the other hand, different from official schools, it has not requirement on students' previous educational background, and is open to people at all ages. It has less requirements than official schools, but provides as good education as official schools!
@@ -73,8 +91,14 @@ An example of Review:
 **Login, Registration, Complete-Profile-Info, and Profile pages are finished.**
 
 **Rest are generated as draft in milestone 1.**
+### /main-courses - main page, redirect to /courses
 
-### /login - log in page, prompt user for username and password
+![](./documentation/course.png)
+
+### /enroll/:slug - enrollment page, prompts users for contact email address and message (expectations of this course) to their instructors
+![](./documentation/enroll.png)
+
+### / - log in page, prompt user for username and password
 
 ![](./documentation/login.png)
 
@@ -88,10 +112,6 @@ An example of Review:
 ### /username/profile - personal profile of current user. (May contain 'drop' utility, which is not displayed now so far.)
 
 ![](./documentation/profile.png)
-
-### / - main page, redirect to /courses
-
-![](./documentation/course.png)
 
 ### /courses - display all courses and brief info
 
@@ -122,15 +142,14 @@ An example of Review:
 ![](./documentation/payment.png)
 
 ## Site Map
-**The following site map is generated in illustrator.**
+**This part has not been updated yet. Will be updated later after adjusting all web pages more carefully.
+The following site map is generated in illustrator.
 
 ![](./documentation/siteMap.png)
 
 ### [Link to the cite map](./documentation/siteMap.pdf)
 
 ## User Stories
-* As non-register user, I can browse all courses and their basic info.
-* As non-register user, I can browse the basic information of how to use this course registration application.
 * As non-register user, I can register an account with a valid email address.
 * As registered user, I can login.
 * As login user, I can enroll any class on site.
@@ -145,14 +164,13 @@ An example of Review:
     * Having a thorough self-learning on React.js, so that I can use MERN stack (MongoDB, Express.js, React.js, and Node.js) to finish this project.
     * Attempting to integrate some relatively fancier web pages, compared to those in assignments.
     * Attempting to study how to use React.js along with Node.js to create web application.
+* (3 points) Use JWT to do user authentication and store information for each user
 * (3 points) Server side authentication: confirmation email
     * Plan to use either aws-amplify or Nodemailer to realize the confirmation functionality: after entering email address in registering process, the user needs to confirm their email address before formally being registered.
 * (2 points) Bootstrap
     * Using bootstrap for some frontend elements decorations, such as forms and buttons.
 * (3 points) Use some payment API, such as Paypal.api, to realize payment functionality
     * Enable user to pay for their courses online.
-* (3 points) aws-amplify
-    * Plan to study aws-amplify on my own for user authentication (or maybe also confirmation email).
 
 12 points total out of 8.
 
@@ -167,3 +185,6 @@ An example of Review:
 * [Tutorial for AWS-Amplify for user authentication](https://blog.logrocket.com/authentication-react-apps-aws-amplify-cognito/)
 * [Tutorial for AWS-Amplify for user authentication](https://cloud.google.com/api-gateway/docs/authenticating-users-jwt#:~:text=To%20authenticate%20a%20user%2C%20a,API%20to%20process%20the%20authentication.)
 * [Tutorial for handling react events](https://reactjs.org/docs/handling-events.html)
+* [Tutorial of JWT user authentication](https://itnext.io/authentication-in-mern-stack-using-jwt-25c966027f77)
+* [Tutorial of axios regarding with authorization header](https://flaviocopes.com/axios-send-authorization-header/)
+* [Tutorial of axios](https://zetcode.com/javascript/axios/)
