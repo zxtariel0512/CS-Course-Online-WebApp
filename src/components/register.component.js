@@ -21,7 +21,8 @@ export default class Register extends Component{
         this.state = {
           username: '',
           password: '',
-          email: ''
+          email: '',
+          error: '',
         }
       }
     
@@ -56,9 +57,15 @@ export default class Register extends Component{
         params.append('email', user.email);
        // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
          axios.post('http://localhost:3000/users/register', params)
-            .then(console.log(params))
-            // .then(window.location = '/complete-user-information');
-        this.props.history.push('/');
+            .then(response => {
+              this.props.history.push('');
+            }).catch(e => {
+              this.setState({error: e.response.data.message});
+            })
+            // .then(window.location = '/complete-user-information')
+          
+            
+        
 
         
         
@@ -126,8 +133,8 @@ export default class Register extends Component{
             </Button>
           </div>
         </Form>
-
-        <p style={{textAlign:'center', marginTop:30}}>Already have an account? <a href='/'>Then login now!</a></p>
+        <p style={{color:'red', textAlign:'center', marginTop:10}}>{this.state.error}</p>
+        <p style={{textAlign:'center'}}>Already have an account? <a href='/'>Then login now!</a></p>
       </div>
       
     )

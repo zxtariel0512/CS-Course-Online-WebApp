@@ -19,6 +19,7 @@ export default class CompleteUserInformation extends Component{
     this.state = {
       username: '',
       password: '',
+      error: ''
     }
   }
 
@@ -65,9 +66,12 @@ export default class CompleteUserInformation extends Component{
           this.props.history.push('/main-courses');
           auth.login(response.data.username, response.data.token);
         }
+        // console.log(response.message);
+        // console.log(response);
         // return Axios.get('/profile/viewprofile')
+      }).catch(e => {
+        this.setState({error: e.response.data.message});
       })
-        // .then(window.location = '/complete-user-information');
     
     
   }
@@ -111,10 +115,9 @@ export default class CompleteUserInformation extends Component{
             </Button>
           </div>
         </Form>
-
-        <p style={{textAlign:'center', marginTop:30}}>Do not have an account yet? <a href='/register'>Register one now!</a></p>
-      </div>
-      
+        <p style={{color:'red', textAlign:'center', marginTop:10}}>{this.state.error}</p>
+        <p style={{textAlign:'center'}}>Do not have an account yet? <a href='/register'>Register one now!</a></p>
+      </div>    
     )
   }
 

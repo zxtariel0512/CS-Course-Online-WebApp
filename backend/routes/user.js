@@ -14,17 +14,17 @@ router.route('/register').post((req, res) => {
           password: hash
         });
   
-        User.findOne({email:req.body.email}).then(user1=>{
+        User.findOne({$or: [{email:req.body.email}, {username: req.body.username}]}).then(user1=>{
           if(user1){
             return res.status(401).json({
-              message: "User Already Exist"
+              message: "User Already Exist. Please use another email address or change a username."
             })
           }
   
           user.save().then(result => {
             if(!result){
               return res.status(500).json({
-                message: "Error Creating USer"
+                message: "Error Creating USer."
               })
             }
             res.status(201).json({
@@ -114,9 +114,9 @@ router.post("/login", (req, res) => {
     User.findOne({username:req.body.username})
         .then(user=>{
         if(!user){
-            console.log("Auth failed no such user");
+            // console.log("Auth failed no such user");
             return res.status(401).json({
-            message: "Auth failed no such user"
+            message: "User not found. Please double check your username."
             })
         }
         fetchedUser=user;
@@ -125,9 +125,9 @@ router.post("/login", (req, res) => {
             .then(result=>{
                 // console.log(fetchedUser)
                 if(!result){
-                    console.log("Auth failed incorect password");
+                    // console.log("Auth failed incorect password");
                     return res.status(401).json({
-                    message: "Auth failed incorect password"
+                    message: "Password incorrect. Please double check your username and password"
                     })
                 }
                 const token = jwt.sign(
