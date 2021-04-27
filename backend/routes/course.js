@@ -31,5 +31,11 @@ router.route('/enroll/:slug').put(async(req, res) => {
     res.json(course);
 })
 
+router.route('/update/:_id').put(async(req, res) => {
+    const course = await Course.findOneAndUpdate({_id: req.params._id}, req.body);
+    res.json(course);
+
+})
+
 
 module.exports = router;

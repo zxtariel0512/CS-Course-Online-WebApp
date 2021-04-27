@@ -59,7 +59,7 @@ export default class Enroll extends Component{
         params.append('contactEmail', this.state.contactEmail);
         params.append('expectation', this.state.expectation);
         params.append('user', this.state.user._id);
-        axios.put(`http://linserv1.cims.nyu.edu:11123/courses/enroll/${this.state.course.slug}`, params, {
+        axios.put(`http://localhost:3000/courses/enroll/${this.state.course.slug}`, params, {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }

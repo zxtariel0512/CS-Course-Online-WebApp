@@ -82,7 +82,8 @@ body{
 #submitBtn{
   display: block;
   margin-top: 30px;
-  margin-left: 220px;
+  /* margin-left: 220px; */
+  margin-left: 45%;
 }
 
 #submitBtn-large{
@@ -280,6 +281,16 @@ h6 {
   background: -webkit-gradient(linear, left top, right top, from(#4376e4), to(#eaebaf));
   background: linear-gradient(to right, #eaebaf, #4baabb);
   margin-top: 50px;
+}
+
+.card-deck{
+  /* display: flex;
+  flex-direction: row; */
+  width: fit-content;
+  margin-left: 3%;
+  /* margin-right: auto; */
+  /* display: inline-block */
+  /* display: flex; */
 }
 
 

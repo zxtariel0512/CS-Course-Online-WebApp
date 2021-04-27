@@ -43,7 +43,7 @@ export default class Main extends Component{
         //     })
         // const response = axios.get('http://localhost:3000/courses');
         // this.setState({courses: response.data});
-        await axios.get("http://linserv1.cims.nyu.edu:11123/courses/", {
+        await axios.get("http://localhost:3000/courses/", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
@@ -53,7 +53,7 @@ export default class Main extends Component{
         // await axios.get("http://localhost:3000/users/loginUser").then(response => {
         //     this.setState({user: response.data})
         // })
-        await axios.get("http://linserv1.cims.nyu.edu:11123/users/loginUser", {
+        await axios.get("http://localhost:3000/users/loginUser", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
@@ -99,7 +99,7 @@ export default class Main extends Component{
                                     <NavDropdown.Divider />
                                 </NavDropdown>
                                 </Nav>
-                                <Nav.Link href='/profile' style={{fontSize:'large'}}>{this.state.user.username}</Nav.Link>
+                                Welcome,<Nav.Link href='/profile' style={{fontSize:'x-large'}}>{this.state.user.username}</Nav.Link>
 
                             </Navbar.Collapse>
                         </Navbar>
@@ -108,13 +108,13 @@ export default class Main extends Component{
                     <div class='courses'>
                             <h1 style={{textAlign:'center'}}>Welcome to CSLOL!</h1>
                             <h3 style={{textAlign:'center'}}>Have a look at our fantastic courses!</h3>
-                            <CardDeck>
+                            <CardDeck className='card-deck'>
                             {/* {console.log(this.state.courses)} */}
                             {this.state.courses.map(ele => {
                                 const enrollLink = `/enroll/${ele.slug}`;
                                 return (
                                     <div>
-                                    <Card style={{ width: '24rem' }} id='course-card'>
+                                    <Card style={{ width: '25rem' }} id='course-card'>
                                         <Card.Body>
                                             <Card.Title>{ele.name}</Card.Title>
                                             <Card.Subtitle className="mb-2" style={{textAlign:'right'}}>{ele.time}</Card.Subtitle>

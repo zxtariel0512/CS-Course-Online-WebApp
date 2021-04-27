@@ -55,7 +55,7 @@ export default class Register extends Component{
         params.append('password', user.password);
         params.append('email', user.email);
        // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
-         axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
+         axios.post('http://localhost:3000/users/register', params)
             .then(console.log(params))
             // .then(window.location = '/complete-user-information');
         this.props.history.push('/');
