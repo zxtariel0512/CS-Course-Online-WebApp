@@ -36,7 +36,7 @@ export default class Enroll extends Component{
         })
     }
     async componentDidMount(){
-        await axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser', {
+        await axios.get('http://localhost:3000/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -46,7 +46,7 @@ export default class Enroll extends Component{
             })
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;
-        await axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`)
+        await axios.get(`http://localhost:3000/courses/${courseSlug}`)
             .then(response => {
                 this.setState({course: response.data, initCourse: 1})
             })

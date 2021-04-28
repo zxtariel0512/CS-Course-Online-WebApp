@@ -81,6 +81,7 @@ export default class Main extends Component{
 
     render(){
         console.log(`username: ${this.state.user.username}`);
+        
         if(this.state.init){
             return(
                 <div>
@@ -112,9 +113,10 @@ export default class Main extends Component{
                             {/* {console.log(this.state.courses)} */}
                             {this.state.courses.map(ele => {
                                 const enrollLink = `/enroll/${ele.slug}`;
+                                const info = `/main-courses/${ele.slug}`;
                                 return (
                                     <div>
-                                    <Card style={{ width: '25rem' }} id='course-card'>
+                                    <Card style={{ width: '22rem' }} id='course-card'>
                                         <Card.Body>
                                             <Card.Title>{ele.name}</Card.Title>
                                             <Card.Subtitle className="mb-2" style={{textAlign:'right'}}>{ele.time}</Card.Subtitle>
@@ -124,7 +126,7 @@ export default class Main extends Component{
                                             {ele.summary}
                                             </Card.Text>
                                             <Card.Link href={enrollLink}>Quick Enroll</Card.Link>
-                                            <Card.Link href="#">More info</Card.Link>
+                                            <Card.Link href={info}>More info</Card.Link>
                                         </Card.Body>
                                     </Card>
                                     </div>
