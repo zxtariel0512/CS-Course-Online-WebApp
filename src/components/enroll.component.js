@@ -3,6 +3,7 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 import { AuthContext } from '../context/auth-context'
 
 export default class Enroll extends Component{
@@ -137,7 +138,9 @@ export default class Enroll extends Component{
         } else{
             return(
                 <div class='largePanel'>
-                    <p>loading...</p>
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
                 </div>
             )
         }

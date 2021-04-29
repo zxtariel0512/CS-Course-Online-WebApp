@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import Spinner from 'react-bootstrap/Spinner';
 
 export default class Profile extends Component{
 
@@ -38,6 +38,7 @@ export default class Profile extends Component{
     }
     
     render(){
+        const enrolledCourses = this.state.user.courses;
         if(this.state.init){
             return (
 
@@ -108,7 +109,13 @@ export default class Profile extends Component{
                                                 </div>
                                                 
                                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Courses</h6>
-                                                <h6 class="text-muted f-w-400">Your course list is so far empty...Let's go and enroll some!</h6>
+                                                <ul>
+                                                {enrolledCourses.map(ele => {
+                                                    return(
+                                                        <li>{ele.name}, by {ele.instructor}, {ele.time}, {ele.mode}</li>
+                                                    )
+                                                })}
+                                                </ul>
                                                 <p style={{textAlign:'center', marginTop:30}}><a href='/main-courses'>Go and enroll more courses!</a></p>
                                                 <ul class="social-link list-unstyled m-t-40 m-b-10">
                                                     <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
@@ -127,7 +134,13 @@ export default class Profile extends Component{
             </div>  
                 )
         } else{
-            return(<p>loading...</p>)
+            return(
+                <div class='mediumPanel'>
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+                </div>
+            )
             
         }
         

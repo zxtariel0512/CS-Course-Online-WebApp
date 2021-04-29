@@ -100,7 +100,7 @@ router.route('/loginUser').get(checkAuth, async(req, res) =>{
     // const username = req.session.user.username;
 
       const username = req.userData.username;
-      let target = await User.findOne({username: username});
+      let target = await User.findOne({username: username}).populate('courses');
       console.log("target:");
       console.log(target);
       res.json(target);
