@@ -7,7 +7,7 @@ const Review = require('../models/review.model.js');
 router.route('/post').post(async(req, res) => {
     const newReview = req.body;  
     const review = await Review.create(newReview);
-    const course = await Course.findOne({_id: review.course});   
+    const course = await Course.findOne({_id: review.course});
     course.reviews.push(review);
     await course.save();
     res.json(review);

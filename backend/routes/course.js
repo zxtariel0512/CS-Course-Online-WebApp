@@ -17,7 +17,26 @@ router.route('/add').post(async(req, res) => {
 })
 
 router.route('/:slug').get(async(req, res) => {
-    const course = await Course.findOne({slug: req.params.slug});
+    const course = await Course.findOne({slug: req.params.slug}).populate([{
+        path:'reviews',
+        populate:{
+            path:'publisher',
+            model:'User'
+        }
+    }, {
+        path:'reviews',
+        populate:{
+            path:'course',
+            model:'Course'
+        }
+    }]);
+    // await course.populate({
+    //     path:'reviews',
+    //     populate:{
+    //         path:'publisher',
+    //         model:'User'
+    //     }
+    // })
     res.json(course);
 })
 

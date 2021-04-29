@@ -19,6 +19,7 @@ function PostReview() {
     const [initUser, setInitUser] = useState(0);
     const [initCourse, setInitCourse] = useState(0);
     const courseSlug = useParams().slug;
+    const reviewsPage = `/main-courses/${courseSlug}/reviews`;
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -60,16 +61,23 @@ function PostReview() {
         params.append('content', content);
         params.append('ratings', ratings);
         params.append('course', course._id);
-        axios.post('http://localhost:3000/reviews/post', params, )
+        axios.post('http://localhost:3000/reviews/post', params, {
+            headers:{
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        }).then(()=>{
+            window.location = reviewsPage;
+        })
     }
 
     if(initUser && initCourse){
+        const enroll = `/enroll/${course.slug}`;
+
     return(
         <div>
             <Nav style={{fontSize:'medium'}}>
                 <Nav.Item as="li">
-                    {/* <Nav.Link href={enroll}>Enroll</Nav.Link> */}
-                    <Nav.Link>Enroll</Nav.Link> 
+                    <Nav.Link href={enroll}>Enroll</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
                     {/* <Nav.Link href={post}>Post</Nav.Link> */}
@@ -176,24 +184,29 @@ export default class Reviews extends Component{
     render(){
         // <Example />
         const enroll = `/enroll/${this.state.course.slug}`;
+        const allReviews = this.state.course.reviews;
         if(this.state.initUser && this.state.initCourse){
             
             return(
                 <div class='hugePanel'>
                     
                     <PostReview />
-                    <h1 style={{marginTop:30}}>COURSE NAME</h1>
+                    <h1 style={{marginTop:30}}>{this.state.course.name}</h1>
                     <Badge pill variant="primary" style={{marginBottom:30, fontSize:'medium'}}>
-                        ⭐ RATINGS
+                        ⭐ RATING
                     </Badge>
-
-                    <div class='review-box'>
-                        <h5 style={{display:'inline-block'}}>USER NAME</h5>
-                        <Badge pill variant="primary" style={{marginLeft:15}}>
-                            ⭐ 4
-                        </Badge>
-                        <p style={{fontSize:'medium'}}>Great course!</p>
-                    </div>
+                    {allReviews.map(ele => {
+                        return (
+                            <div class='review-box'>
+                                <h5 style={{display:'inline-block'}}>{ele.publisher.username}</h5>
+                                <Badge pill variant="primary" style={{marginLeft:15}}>
+                                    ⭐ {ele.ratings}
+                                </Badge>
+                                <p style={{fontSize:'medium'}}>{ele.content}</p>
+                            </div>
+                        )
+                    })}
+                    
                 </div>
             )
             } else{
