@@ -42,6 +42,9 @@ router.route('/:slug').get(async(req, res) => {
 
 router.route('/enroll/:slug').put(async(req, res) => {
     const course = await Course.findOne({slug: req.params.slug});
+    const student = await User.findById(req.body.user);
+    student.courses.push(course);
+    await student.save();
     course.students.push(req.body.user);
     course.emailList.push(req.body.contactEmail);
     course.expectation.push(req.body.expectation);
