@@ -100,9 +100,9 @@ export default class CompleteUserInformation extends Component{
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       }
       })
-       .then(console.log(params))
+       .then(window.location='/profile');
       //  .then(console.log(this.state.firstName))
-      this.props.history.push('/profile');
+      
 
   }
 
