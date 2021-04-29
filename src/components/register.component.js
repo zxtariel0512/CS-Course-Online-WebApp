@@ -89,7 +89,7 @@ export default class Register extends Component{
                     onChange={this.onChangeEmail}
                 />
                 <Form.Text className="text-muted">
-                    Please enter a valid email address that you use in your daily life. Later there will be a confirmation email sent to you, and you need to confirm that email in order to complete your registration.
+                    Please enter a valid email address that you use in your daily life. 
                 </Form.Text>
                 </Form.Group>
             </Form.Row>
@@ -105,7 +105,7 @@ export default class Register extends Component{
                     onChange={this.onChangeUsername}
                 />
                 <Form.Text className="text-muted">
-                    Your username must have length at least 8.
+                    Your username must be longer than 1.
                 </Form.Text>
                 </Form.Group>
             </Form.Row>

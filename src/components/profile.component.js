@@ -112,7 +112,7 @@ export default class Profile extends Component{
                                                 <ul>
                                                 {enrolledCourses.map(ele => {
                                                     return(
-                                                        <li>{ele.name}, by {ele.instructor}, {ele.time}, {ele.mode}</li>
+                                                        <li class="f-w-400">{ele.name}, by {ele.instructor}, {ele.time}, {ele.mode}</li>
                                                     )
                                                 })}
                                                 </ul>
