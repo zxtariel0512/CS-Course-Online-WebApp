@@ -31,7 +31,7 @@ export default class Course extends Component{
     render(){
         if(this.state.initCourse){
             const enroll = `/enroll/${this.state.course.slug}`;
-            const review = `/review/${this.state.course.slug}`;
+            const review = `/main-courses/${this.state.course.slug}/reviews`;
             const topics = this.state.course.topics;
             const textbooks = this.state.course.textbooks;
             console.log(this.state.course);
@@ -40,7 +40,7 @@ export default class Course extends Component{
             // const textbooks = ["lala", "lala"];
             return(
 
-                <div class='largePanel'>
+                <div class='hugePanel'>
 
     <               Nav style={{fontSize:'medium'}}>
                         <Nav.Item as="li">

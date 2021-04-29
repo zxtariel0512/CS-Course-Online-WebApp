@@ -78,6 +78,30 @@ body{
   box-shadow: 10px 10px 10px
 }
 
+.hugePanel{
+  margin: auto;
+  padding: 40px;
+  width: 75%;
+  background: white;
+  height: fit-content;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px
+}
+
+.review-box{
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+  background:white;
+  height:fit-content;
+  margin-top:15px;
+  border-radius:5px;
+  border-left: 6px solid rgb(91, 186, 230);
+  background:#cbeaff
+}
+
 
 #submitBtn{
   display: block;

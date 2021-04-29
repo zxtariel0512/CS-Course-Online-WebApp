@@ -35,6 +35,7 @@ app.use('/main-courses', express.static('./build'));
 app.use('/profile', express.static('./build'));
 app.use('/enroll/:slug', express.static('./build'));
 app.use('/main-courses/:slug', express.static('./build'));
+app.use('/main-courses/:slug/reviews', express.static('./build'));
 
 // const uri = 'mongodb://localhost/cs-online-courses';
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
@@ -72,9 +73,11 @@ connection.once('open', () => {
 // here comes the routes
 const userRouter = require('./routes/user.js');
 const courseRouter = require('./routes/course.js');
+const reviewRouter = require('./routes/review.js');
 
 app.use('/users', userRouter);
 app.use('/courses', courseRouter);
+app.use('/reviews', reviewRouter);
 
 app.listen(process.env.PORT || 3000, () => {
     if(process.env.PORT){
