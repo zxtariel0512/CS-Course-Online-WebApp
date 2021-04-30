@@ -14,39 +14,36 @@ router.route('/register').post((req, res) => {
           password: hash
         });
 
-        if(user.username.length <= 1){
-          return res.status(401).json({
-            message: "Username too short. It must have at least 2 characters"
-          })
-        }
-        if(req.body.password.length < 8){
-          return res.status(401).json({
-            message: "Password too short. It must have at least 8 characters."
-          })
-        } else{
-          let upper = 0;
-          let lower = 0;
-          let num = 0;
-          for(let i = 0; i < req.body.password.length; i++){
-            console.log(req.body.password);
-            const c = req.body.password.charAt(i);
-            if(c.charCodeAt(0) >= 48 && c.charCodeAt(0) <= 57){
-              num += 1;
-            } else if(c.charCodeAt(0) >= 65 && c.charCodeAt(0) <= 90){
-              upper += 1;
-            } else if(c.charCodeAt(0) >= 97 && c.charCodeAt(0) <= 122){
-              lower += 1;
-            }
-          }
-          console.log(upper);
-          console.log(num);
-          console.log(lower);
-          if(upper < 1 || lower < 1 || num < 1){
-            return res.status(401).json({
-              message: "Password invalid. You need to have at least 1 upper case, at least 1 lower case, and at least 1 number."
-            })
-          }
-        }
+        // if(user.username.length <= 1){
+        //   return res.status(401).json({
+        //     message: "Username too short. It must have at least 2 characters"
+        //   })
+        // }
+        // if(req.body.password.length < 8){
+        //   return res.status(401).json({
+        //     message: "Password too short. It must have at least 8 characters."
+        //   })
+        // } else{
+        //   let upper = 0;
+        //   let lower = 0;
+        //   let num = 0;
+        //   for(let i = 0; i < req.body.password.length; i++){
+        //     console.log(req.body.password);
+        //     const c = req.body.password.charAt(i);
+        //     if(c.charCodeAt(0) >= 48 && c.charCodeAt(0) <= 57){
+        //       num += 1;
+        //     } else if(c.charCodeAt(0) >= 65 && c.charCodeAt(0) <= 90){
+        //       upper += 1;
+        //     } else if(c.charCodeAt(0) >= 97 && c.charCodeAt(0) <= 122){
+        //       lower += 1;
+        //     }
+        //   }
+        //   if(upper < 1 || lower < 1 || num < 1){
+        //     return res.status(401).json({
+        //       message: "Password invalid. You need to have at least 1 upper case, at least 1 lower case, and at least 1 number."
+        //     })
+        //   }
+        // }
         
 
   

@@ -25,6 +25,7 @@ export default class Register extends Component{
           error: '',
         }
       }
+
     
       onChangeUsername(e) {
         this.setState({
@@ -49,25 +50,62 @@ export default class Register extends Component{
             password: this.state.password,
             email: this.state.email,
         }
-        //document.cookie =  `username=${user.username}`;
-        var params = new URLSearchParams();
-        console.log(user.username + " " + user.password);
-        params.append('username', user.username);
-        params.append('password', user.password);
-        params.append('email', user.email);
-       // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
-         axios.post('http://localhost:3000/users/register', params)
-            .then(response => {
-              this.props.history.push('/')
-            }).catch(e => {
-              this.setState({error: e.response.data.message});
-            })
-            // .then(window.location = '/complete-user-information')
-          
-            
-        
-
-        
+        let usernameOk = 0;
+        let passwordOk = 0;
+        if(user.username.length <= 1){
+          // return res.status(401).json({
+          //   message: "Username too short. It must have at least 2 characters"
+          // })
+          this.setState({error: "Username too short. It must have at least 2 characters"});
+        } else{
+          usernameOk = 1;
+        }
+        if(user.password.length < 8){
+          // return res.status(401).json({
+          //   message: "Password too short. It must have at least 8 characters."
+          // })
+          this.setState({error: "Password too short. It must have at least 8 characters."})
+        } else{
+          let upper = 0;
+          let lower = 0;
+          let num = 0;
+          for(let i = 0; i < user.password.length; i++){
+            console.log(user.password);
+            const c = user.password.charAt(i);
+            if(c.charCodeAt(0) >= 48 && c.charCodeAt(0) <= 57){
+              num += 1;
+            } else if(c.charCodeAt(0) >= 65 && c.charCodeAt(0) <= 90){
+              upper += 1;
+            } else if(c.charCodeAt(0) >= 97 && c.charCodeAt(0) <= 122){
+              lower += 1;
+            }
+          }
+          if(upper < 1 || lower < 1 || num < 1){
+            // return res.status(401).json({
+            //   message: "Password invalid. You need to have at least 1 upper case, at least 1 lower case, and at least 1 number."
+            // })
+            this.setState({error: "Password invalid. You need to have at least 1 upper case, at least 1 lower case, and at least 1 number."});
+          } else{
+            passwordOk = 1;
+          }
+        }
+        if(usernameOk && passwordOk){
+          //document.cookie =  `username=${user.username}`;
+          var params = new URLSearchParams();
+          console.log(user.username + " " + user.password);
+          params.append('username', user.username);
+          params.append('password', user.password);
+          params.append('email', user.email);
+        // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
+          axios.post('http://localhost:3000/users/register', params)
+              .then(response => {
+                this.props.history.push('/')
+              }).catch(e => {
+                this.setState({error: e.response.data.message});
+              })
+              // .then(window.location = '/complete-user-information')
+        }
+             
         
       }
 
