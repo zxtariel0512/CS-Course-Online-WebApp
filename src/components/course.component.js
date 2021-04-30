@@ -18,9 +18,26 @@ export default class Course extends Component{
 
     
     async componentDidMount(){
+
+        await axios.get('http://localhost:3000/loginUser', {
+      headers:{
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    })
+      .then(response => {
+        if(response.data == undefined){
+          this.props.history.push('/error');
+        }
+      })
+        
+        
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;
-        await axios.get(`http://localhost:3000/courses/${courseSlug}`)
+        await axios.get(`http://localhost:3000/courses/${courseSlug}`, {
+            headers:{
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+          })
             .then(response => {
                 this.setState({course: response.data, initCourse: 1})
             })

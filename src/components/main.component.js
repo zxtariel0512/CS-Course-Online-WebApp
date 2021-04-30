@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Spinner from 'react-bootstrap/Spinner';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
@@ -58,7 +59,12 @@ export default class Main extends Component{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
         }).then(response => {
-            this.setState({user: response.data})
+            if(response.data == undefined){
+                this.props.history.push('/error');
+            }else{
+                this.setState({user: response.data})
+            }
+            
         })
         // await axios.get("http://localhost:3000/users/checkAuth").then(response => {
         //     this.setState({isLogin: response.data})
@@ -176,6 +182,11 @@ export default class Main extends Component{
                     <div class='courses'>
                         <h1 style={{textAlign:'center'}}>Welcome to CSLOL!</h1>
                     </div>
+                    
+                    <Spinner animation="border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
+
                     
                 </div>
             )

@@ -141,7 +141,7 @@ router.route('/loginUser').get(checkAuth, async(req, res) =>{
     
 })
 
-router.post("/login", (req, res) => {
+router.route("/login").post((req, res) => {
     let fetchedUser;
     // console.log(req.body.username);
     User.findOne({username:req.body.username})
@@ -183,6 +183,7 @@ router.post("/login", (req, res) => {
     
     })
   })
+
 
 
 module.exports = router;

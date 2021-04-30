@@ -11,6 +11,7 @@ import Main from "./components/main.component.js";
 import Enroll from "./components/enroll.component.js";
 import Course from "./components/course.component.js";
 import Reviews from "./components/reviews.component.js";
+import Error from "./components/error.component.js";
 import { AuthContext } from './context/auth-context';
 import axios from 'axios';
 
@@ -103,6 +104,7 @@ const App = (props) => {
           <Route path="/enroll/:slug" exact component={Enroll} />
           <Route path="/main-courses/:slug" exact component={Course} />
           <Route path="/main-courses/:slug/reviews" exact component={Reviews} />
+          <Route path="/error" exact component={Error} />
           </div>
         </Router>
           

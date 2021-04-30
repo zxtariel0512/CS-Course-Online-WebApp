@@ -24,6 +24,7 @@ function PostReview() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+
     if(initUser == 0 || initCourse == 0){
         axios.get('http://localhost:3000/users/loginUser', {
                 headers:{
@@ -165,7 +166,8 @@ export default class Reviews extends Component{
                 }
         })
             .then(response => {
-                this.setState({user: response.data, initUser: 1})
+                if(response.data == undefined){this.props.history.push('/error');}
+                else{this.setState({user: response.data, initUser: 1})}
             })
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;

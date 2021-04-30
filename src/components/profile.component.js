@@ -12,9 +12,12 @@ export default class Profile extends Component{
             user:{},
             init:0
         }
+        this.onLogout = this.onLogout.bind(this);
     }
 
+
     componentDidMount(){
+
         // try{
             axios.get('http://localhost:3000/users/loginUser', {
                 headers:{
@@ -22,7 +25,11 @@ export default class Profile extends Component{
                 }
             })
             .then(response => {
-                this.setState({user: response.data, init:1})
+                if(reponse.data == undefined){
+                    this.props.history.push('/error');
+                } else{
+                    this.setState({user: response.data, init:1})
+                }
             })
             // axios.get('http://localshot:3000/users/get/User')
             //     .then(response => {

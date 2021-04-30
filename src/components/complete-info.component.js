@@ -36,6 +36,8 @@ export default class CompleteUserInformation extends Component{
     }
   }
 
+
+
   // componentDidMount() {
   //   axios.get('http://localhost:3000/users/loginUser')
   //     .then(response => {
@@ -129,7 +131,7 @@ export default class CompleteUserInformation extends Component{
         axios.put(`http://localhost:3000/users/updateProfile`, params, {
           headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('token')
-        }
+          }
         })
         .then(() => {
           this.setState({updated: 1})
@@ -138,6 +140,19 @@ export default class CompleteUserInformation extends Component{
     }
       
 
+  }
+
+  async componentDidMount(){
+    await axios.get('http://localhost:3000/loginUser', {
+      headers:{
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    })
+      .then(response => {
+        if(response.data == undefined){
+          this.props.history.push('/error');
+        }
+      })
   }
 
   render(){

@@ -37,13 +37,18 @@ export default class Enroll extends Component{
         })
     }
     async componentDidMount(){
+       
         await axios.get('http://localhost:3000/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
         })
             .then(response => {
-                this.setState({user: response.data, initUser: 1})
+                if(reponse.data == undefined){
+                    this.props.history.push('/error');
+                } else{
+                    this.setState({user: response.data, initUser: 1})
+                }             
             })
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;
