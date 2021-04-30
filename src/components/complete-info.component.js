@@ -30,7 +30,8 @@ export default class CompleteUserInformation extends Component{
       pron: '',
       phone: '',
       ins: '',
-      fb: ''
+      fb: '',
+      error: ''
     }
   }
 
@@ -83,25 +84,49 @@ export default class CompleteUserInformation extends Component{
   }
   onSubmit(e) {
     e.preventDefault();
-    var params = new URLSearchParams();
-    params.append('firstName', this.state.firstName);
-    params.append('lastName', this.state.lastName);
-    params.append('Age', this.state.age);
-    params.append("gender", this.state.gender);
-    params.append("preferredPron", this.state.pron);
-    params.append("instagram", this.state.ins);
-    params.append("facebook", this.state.fb);
-    params.append("phone", this.state.phone);
-    
-     //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
-      //axios.put("/users/profile/h", params).then(console.log(params));
-      axios.put(`http://localhost:3000/users/updateProfile`, params, {
-        headers:{
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
+    let ageOk = 0;
+    let phoneOk = 0;
+    if(this.state.age !== ''){
+      if(isNaN(this.state.age)){
+        this.setState({error: "Please enter some number for Age."})
+      } else{
+        ageOk = 1;
       }
-      })
-       .then(window.location='/profile');
-      //  .then(console.log(this.state.firstName))
+    } else{
+      ageOk = 1;
+    }
+    if(this.state.phone !== ''){
+      if(isNaN(this.state.phone)){
+        this.setState({error: "Phone number invalid. Please double check."});
+      } else{
+        if(this.state.phone.length != 10){
+          this.setState({error: "Phone number length invalid. Please double check."});
+        } else{
+          phoneOk = 1;
+        }
+      }
+    }
+    if(phoneOk && ageOk){
+      var params = new URLSearchParams();
+      params.append('firstName', this.state.firstName);
+      params.append('lastName', this.state.lastName);
+      params.append('Age', this.state.age);
+      params.append("gender", this.state.gender);
+      params.append("preferredPron", this.state.pron);
+      params.append("instagram", this.state.ins);
+      params.append("facebook", this.state.fb);
+      params.append("phone", this.state.phone);
+      
+      //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
+        //axios.put("/users/profile/h", params).then(console.log(params));
+        axios.put(`http://localhost:3000/users/updateProfile`, params, {
+          headers:{
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+        })
+        .then(window.location='/profile');
+        //  .then(console.log(this.state.firstName))
+    }
       
 
   }
@@ -198,7 +223,7 @@ export default class CompleteUserInformation extends Component{
             </Form.Group>
           </Form.Row>
 
-          
+          <p style={{color:'red', textAlign:'center', marginTop:10}}>{this.state.error}</p>
           <div id='submitBtn'>
             <Button variant="primary" type="submit">
               Done!
