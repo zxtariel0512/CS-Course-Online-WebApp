@@ -183,9 +183,15 @@ export default class Reviews extends Component{
 
     render(){
         // <Example />
-        const enroll = `/enroll/${this.state.course.slug}`;
-        const allReviews = this.state.course.reviews;
+        
         if(this.state.initUser && this.state.initCourse){
+            const enroll = `/enroll/${this.state.course.slug}`;
+            const allReviews = this.state.course.reviews;
+            let sum = 0;
+            for(let i = 0; i < allReviews.length; i++){
+                sum += allReviews[i].ratings;
+            }
+            const avgRatings = sum / allReviews.length;
             
             return(
                 <div class='hugePanel'>
@@ -193,7 +199,7 @@ export default class Reviews extends Component{
                     <PostReview />
                     <h1 style={{marginTop:30}}>{this.state.course.name}</h1>
                     <Badge pill variant="primary" style={{marginBottom:30, fontSize:'medium'}}>
-                        ⭐ RATING
+                        ⭐ {avgRatings}
                     </Badge>
                     {allReviews.map(ele => {
                         return (

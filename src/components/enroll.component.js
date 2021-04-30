@@ -126,12 +126,12 @@ export default class Enroll extends Component{
             } else{
                 return(
                     <div class='largePanel'>
-                        <h2>Please double check following information...</h2>
+                        <h2>We appreciate your information!</h2>
+                        <h4>Below information has been saved and would be provided with the instructor before the course starts. Hope you would enjoy this course!</h4>
                         <p><span style={{fontSize:'large',fontWeight:'bold'}}>Course: </span>{this.state.course.name}</p>
                         <p><span style={{fontSize:'large',fontWeight:'bold'}}>Contact Email: </span>{this.state.contactEmail}</p>
                         <p><span style={{fontSize:'large',fontWeight:'bold'}}>Message to instructor: </span>{this.state.expectation}</p>
-                        <p style={{textAlign:'center', marginTop:30}}>Everything's correct? <a href='/main-courses'>Back to main page!</a></p>
-                        <p style={{textAlign:'center', marginTop:30}}>Something went wrong? <a href='/main-courses'>Go back and try again!</a></p>
+                        <p style={{textAlign:'center', marginTop:30}}><a href='/main-courses'>Back to main page!</a></p>
                     </div>
                 )
             }

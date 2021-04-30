@@ -79,8 +79,8 @@ export default class CompleteUserInformation extends Component{
   render(){
     return (
       <div class='mediumPanel'>
-        <h1 style={{textAlign:'center'}}>Login</h1>
-        <p style={{textAlign:'center'}}>Login into your account and start your CS journey!</p>
+        <h1 style={{textAlign:'center'}}>Welcome to CSLOL!</h1>
+        <p style={{textAlign:'center'}}>Login into your account first to start your CS journey!</p>
         <Form onSubmit={this.onSubmit}>
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridLoginUsername">
