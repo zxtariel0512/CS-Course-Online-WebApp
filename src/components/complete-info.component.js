@@ -127,7 +127,7 @@ export default class CompleteUserInformation extends Component{
       
       //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
         //axios.put("/users/profile/h", params).then(console.log(params));
-        axios.put(`http://linserv1:cims.nyu.edu:11123/users/updateProfile`, params, {
+        axios.put(`http://linserv1.cims.nyu.edu:11123/users/updateProfile`, params, {
           headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
