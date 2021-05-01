@@ -48,7 +48,7 @@ export default class CompleteUserInformation extends Component{
     params.append('password', user.password);
     console.log('clicksubmit');
    // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
-     axios.post('http://localhost:3000/users/login', params, {
+     axios.post('http://linserv1.cims.nyu.edu:11123/users/login', params, {
       headers:{
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     }

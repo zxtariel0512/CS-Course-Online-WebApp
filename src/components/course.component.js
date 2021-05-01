@@ -31,7 +31,7 @@ export default class Course extends Component{
         
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;
-        await axios.get(`http://localhost:3000/courses/${courseSlug}`, {
+        await axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`, {
             headers:{
               'Authorization': 'Bearer ' + localStorage.getItem('token')
             }

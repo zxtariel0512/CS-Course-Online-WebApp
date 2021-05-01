@@ -18,7 +18,7 @@ export default class Profile extends Component{
     componentDidMount(){
 
         // try{
-            axios.get('http://localhost:3000/users/loginUser', {
+            axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }

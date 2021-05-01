@@ -144,7 +144,7 @@ export default class CompleteUserInformation extends Component{
 
   async componentDidMount(){
     try{
-      await axios.get('http://localhost:3000/loginUser', {
+      await axios.get('http://linserv1.cims.nyu.edu:11123/loginUser', {
         headers:{
           'Authorization': 'Bearer ' + localStorage.getItem('token')
         }

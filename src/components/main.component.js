@@ -54,7 +54,7 @@ export default class Main extends Component{
         // await axios.get("http://localhost:3000/users/loginUser").then(response => {
         //     this.setState({user: response.data})
         // })
-        await axios.get("http://localhost:3000/users/loginUser", {
+        await axios.get("http://linserv1.cims.nyu.edu:11123/users/loginUser", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }

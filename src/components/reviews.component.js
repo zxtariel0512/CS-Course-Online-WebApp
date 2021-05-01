@@ -62,7 +62,7 @@ function PostReview() {
         params.append('content', content);
         params.append('ratings', ratings);
         params.append('course', course._id);
-        axios.post('http://localhost:3000/reviews/post', params, {
+        axios.post('http://linserv1.cims.nyu.edu:11123/reviews/post', params, {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
@@ -165,11 +165,11 @@ export default class Reviews extends Component{
     async componentDidMount(){
         // this.setState({course: this.props.match.params.slug})
         const courseSlug = this.props.match.params.slug;
-        await axios.get(`http://localhost:3000/courses/${courseSlug}`)
+        await axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`)
             .then(response => {
                 this.setState({course: response.data, initCourse: 1})
             })
-            await axios.get('http://localhost:3000/users/loginUser', {
+            await axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
