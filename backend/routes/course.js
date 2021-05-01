@@ -30,13 +30,6 @@ router.route('/:slug').get(async(req, res) => {
             model:'Course'
         }
     }]);
-    // await course.populate({
-    //     path:'reviews',
-    //     populate:{
-    //         path:'publisher',
-    //         model:'User'
-    //     }
-    // })
     res.json(course);
 })
 
