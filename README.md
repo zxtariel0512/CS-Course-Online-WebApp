@@ -154,7 +154,7 @@ An example of Review:
 
 ![](./documentation/site-map.png)
 
-### [Link to the cite map](./documentation/site-map.png)
+### [Link to the site map](./documentation/site-map.png)
 
 ## User Stories
 * As non-register user, I can register an account.
