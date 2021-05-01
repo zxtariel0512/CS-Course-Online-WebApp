@@ -37,7 +37,6 @@ export default class CompleteUserInformation extends Component{
   }
 
 
-
   // componentDidMount() {
   //   axios.get('http://localhost:3000/users/loginUser')
   //     .then(response => {
@@ -141,19 +140,6 @@ export default class CompleteUserInformation extends Component{
       
 
   }
-
-  async componentDidMount(){
-    try{
-      await axios.get('http://linserv1.cims.nyu.edu:11123/loginUser', {
-        headers:{
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-        }
-      })
-    }catch(e){
-      this.props.history.push('/error');
-    }
-  }
-  
 
   render(){
     if(!this.state.updated){
