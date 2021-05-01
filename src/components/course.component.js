@@ -18,17 +18,15 @@ export default class Course extends Component{
 
     
     async componentDidMount(){
-
-        await axios.get('http://localhost:3000/loginUser', {
-      headers:{
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      }
-    })
-      .then(response => {
-        if(response.data == undefined){
-          this.props.history.push('/error');
-        }
-      })
+        // try{
+        //     await axios.get('http://localhost:3000/loginUser', {
+        //         headers:{
+        //             'Authorization': 'Bearer ' + localStorage.getItem('token')
+        //         }
+        //     })
+        // } catch(e){
+        //     this.props.history.push('/error');
+        // }
         
         
         // this.setState({course: this.props.match.params.slug})

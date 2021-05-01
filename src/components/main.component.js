@@ -97,12 +97,12 @@ export default class Main extends Component{
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="mr-auto">
-                                <Nav.Link href="/" style={{fontSize:'xx-large'}}>Courses</Nav.Link>
+                                <Nav.Link href="/main-courses" style={{fontSize:'xx-large'}}>Courses</Nav.Link>
                                 {/* <Nav.Link href="#link" style={{fontSize:'xx-large'}}>Introduction</Nav.Link> */}
                                 <NavDropdown title="Introduction" id="basic-nav-dropdown" style={{fontSize:'xx-large'}}>
-                                    <NavDropdown.Item href="#action/3.1" style={{fontSize:'large'}}>What is CSLOL?</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" style={{fontSize:'large'}}>What can you do on CSLOL?</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3" style={{fontSize:'large'}}>Things you need to know</NavDropdown.Item>
+                                    <NavDropdown.Item href="/introduction" style={{fontSize:'large'}}>What is CSLOL?</NavDropdown.Item>
+                                    <NavDropdown.Item href="/actions" style={{fontSize:'large'}}>What can you do on CSLOL?</NavDropdown.Item>
+                                    <NavDropdown.Item href="/reminder" style={{fontSize:'large'}}>Things you need to know</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                 </NavDropdown>
                                 </Nav>

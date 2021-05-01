@@ -44,7 +44,7 @@ export default class Enroll extends Component{
                 }
         })
             .then(response => {
-                if(reponse.data == undefined){
+                if(response.data == undefined){
                     this.props.history.push('/error');
                 } else{
                     this.setState({user: response.data, initUser: 1})

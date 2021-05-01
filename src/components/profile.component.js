@@ -12,7 +12,6 @@ export default class Profile extends Component{
             user:{},
             init:0
         }
-        this.onLogout = this.onLogout.bind(this);
     }
 
 
@@ -25,7 +24,7 @@ export default class Profile extends Component{
                 }
             })
             .then(response => {
-                if(reponse.data == undefined){
+                if(response.data == undefined){
                     this.props.history.push('/error');
                 } else{
                     this.setState({user: response.data, init:1})

@@ -73,7 +73,7 @@ function PostReview() {
 
     if(initUser && initCourse){
         const enroll = `/enroll/${course.slug}`;
-
+        const coursePage = `/main-courses/${course.slug}`;
     return(
         <div>
             <Nav style={{fontSize:'medium'}}>
@@ -83,6 +83,9 @@ function PostReview() {
                 <Nav.Item as="li">
                     {/* <Nav.Link href={post}>Post</Nav.Link> */}
                     <Nav.Link onClick={handleShow}>Post</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                    <Nav.Link href={coursePage}>Course</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
                     <Nav.Link href='/main-courses'>Back</Nav.Link>
@@ -160,7 +163,13 @@ export default class Reviews extends Component{
     }
 
     async componentDidMount(){
-        await axios.get('http://localhost:3000/users/loginUser', {
+        // this.setState({course: this.props.match.params.slug})
+        const courseSlug = this.props.match.params.slug;
+        await axios.get(`http://localhost:3000/courses/${courseSlug}`)
+            .then(response => {
+                this.setState({course: response.data, initCourse: 1})
+            })
+            await axios.get('http://localhost:3000/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -169,17 +178,8 @@ export default class Reviews extends Component{
                 if(response.data == undefined){this.props.history.push('/error');}
                 else{this.setState({user: response.data, initUser: 1})}
             })
-        // this.setState({course: this.props.match.params.slug})
-        const courseSlug = this.props.match.params.slug;
-        await axios.get(`http://localhost:3000/courses/${courseSlug}`)
-            .then(response => {
-                this.setState({course: response.data, initCourse: 1})
-            })
     }
 
-    onSubmit(e){
-
-    }
 
 
 
