@@ -133,7 +133,7 @@ An example of Review:
 
 ### /main-courses/:slug/review --> Reviews page. All reviews are displayed for specific course, along with access to post a new review
 ![](./documentation/reviews.png)
-![](./documentation/post-reviews.png)
+![](./documentation/post-review.png)
 
 ### /profile --> Profile page. Include information user has entered in /complete-user-information page, along with all enrolled courses
 ![](./documentation/profile.png)
