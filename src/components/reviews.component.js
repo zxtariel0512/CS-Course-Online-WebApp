@@ -26,7 +26,7 @@ function PostReview() {
 
 
     if(initUser == 0 || initCourse == 0){
-        axios.get('http://localhost:3000/users/loginUser', {
+        axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 }
@@ -39,7 +39,7 @@ function PostReview() {
         // const courseSlug = Reviews.props.match.params.slug;
         
         
-        axios.get(`http://localhost:3000/courses/${courseSlug}`)
+        axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`)
             .then(response => {
                 setCourse(response.data);
                 setInitCourse(1);
