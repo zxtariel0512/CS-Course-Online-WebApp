@@ -39,7 +39,8 @@ const courseSchema = new mongoose.Schema({
     }],
     emailList:[{type: String}],
     expectation:[{type: String}],
-    summary: String
+    summary: String,
+    topics:[{type: String}]
 });
 
 courseSchema.plugin(URLSlugs('name'));
