@@ -37,12 +37,6 @@ export default class CompleteUserInformation extends Component{
   }
 
 
-  // componentDidMount() {
-  //   axios.get('http://localhost:3000/users/loginUser')
-  //     .then(response => {
-  //       this.setState({ user: response.data })
-  //     })
-  // }
 
   onChangeFirstName(e) {
     this.setState({
@@ -125,8 +119,7 @@ export default class CompleteUserInformation extends Component{
       params.append("facebook", this.state.fb);
       params.append("phone", this.state.phone);
       
-      //axios.put(`http://linserv1.cims.nyu.edu:11123/users/${cookies.get('username')}`, params);
-        //axios.put("/users/profile/h", params).then(console.log(params));
+
         axios.put(`http://linserv1.cims.nyu.edu:11123/users/updateProfile`, params, {
           headers:{
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -135,7 +128,7 @@ export default class CompleteUserInformation extends Component{
         .then(() => {
           this.setState({updated: 1})
         });
-        //  .then(console.log(this.state.firstName))
+
     }
       
 

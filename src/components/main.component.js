@@ -23,27 +23,13 @@ export default class Main extends Component{
             user:{},
             isLogin:false
         }
-        // this.onClick = this.onClick.bind(this);
+       
     }
 
-    // onClick(e){
-    //     e.preventDefault();
-    //     console.log(`after click username ${this.state.user.username}`);
-    //     // this.props.history.push('/profile');
-    // }
+
 
     async componentDidMount(){
-        // const arr = [];
-        // axios.get('http://localhost:3000/courses/')
-        //     .then(response => {
-        //         if(response.data.length > 0){
-        //             this.setState({
-        //                 courses: response.data
-        //             })
-        //         }
-        //     })
-        // const response = axios.get('http://localhost:3000/courses');
-        // this.setState({courses: response.data});
+
         await axios.get("http://linserv1.cims.nyu.edu:11123/courses/", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -51,9 +37,7 @@ export default class Main extends Component{
         }).then(response => {
             this.setState({courses: response.data, init: 1})
         })
-        // await axios.get("http://localhost:3000/users/loginUser").then(response => {
-        //     this.setState({user: response.data})
-        // })
+
         await axios.get("http://linserv1.cims.nyu.edu:11123/users/loginUser", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -66,24 +50,11 @@ export default class Main extends Component{
             }
             
         })
-        // await axios.get("http://localhost:3000/users/checkAuth").then(response => {
-        //     this.setState({isLogin: response.data})
-        // })
-        // await axios.get('http://localhost:3000/users/loginUser').then(response =>{
-        //     if(response != undefined){
-        //         this.setState({isLogin: true, user: response.data})
-        //     } 
-        // })
+
         
     }
 
-    
 
-    
-
-    // shouldComponentUpdate(){
-    //     return (this.state.courses.length === 0);
-    // }
 
     render(){
         console.log(`username: ${this.state.user.username}`);

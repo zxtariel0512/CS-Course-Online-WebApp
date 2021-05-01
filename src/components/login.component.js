@@ -41,23 +41,20 @@ export default class CompleteUserInformation extends Component{
         username: this.state.username,
         password: this.state.password,
     }
-    //document.cookie =  `username=${user.username}`;
+
     var params = new URLSearchParams();
     console.log(user.username + " " + user.password);
     params.append('username', user.username);
     params.append('password', user.password);
     console.log('clicksubmit');
-   // axios.post('http://linserv1.cims.nyu.edu:11123/users/register', params)
+
      axios.post('http://linserv1.cims.nyu.edu:11123/users/login', params, {
       headers:{
         'Authorization': 'Bearer ' + localStorage.getItem('token')
     }
      })
       .then(response => {
-        // this.setState(pre => ({
-        //     isloading: false
-        // }))
-        // this.props.history.push('/')
+
         
         if(response.data.confirmed === false){
           this.props.history.push('/complete-user-information');
@@ -66,9 +63,7 @@ export default class CompleteUserInformation extends Component{
           this.props.history.push('/main-courses');
           auth.login(response.data.username, response.data.token);
         }
-        // console.log(response.message);
-        // console.log(response);
-        // return Axios.get('/profile/viewprofile')
+
       }).catch(e => {
         this.setState({error: e.response.data.message});
       })

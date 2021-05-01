@@ -18,18 +18,7 @@ export default class Course extends Component{
 
     
     async componentDidMount(){
-        // try{
-        //     await axios.get('http://localhost:3000/loginUser', {
-        //         headers:{
-        //             'Authorization': 'Bearer ' + localStorage.getItem('token')
-        //         }
-        //     })
-        // } catch(e){
-        //     this.props.history.push('/error');
-        // }
-        
-        
-        // this.setState({course: this.props.match.params.slug})
+    
         const courseSlug = this.props.match.params.slug;
         await axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`, {
             headers:{

@@ -14,39 +14,6 @@ router.route('/register').post((req, res) => {
           password: hash
         });
 
-        // if(user.username.length <= 1){
-        //   return res.status(401).json({
-        //     message: "Username too short. It must have at least 2 characters"
-        //   })
-        // }
-        // if(req.body.password.length < 8){
-        //   return res.status(401).json({
-        //     message: "Password too short. It must have at least 8 characters."
-        //   })
-        // } else{
-        //   let upper = 0;
-        //   let lower = 0;
-        //   let num = 0;
-        //   for(let i = 0; i < req.body.password.length; i++){
-        //     console.log(req.body.password);
-        //     const c = req.body.password.charAt(i);
-        //     if(c.charCodeAt(0) >= 48 && c.charCodeAt(0) <= 57){
-        //       num += 1;
-        //     } else if(c.charCodeAt(0) >= 65 && c.charCodeAt(0) <= 90){
-        //       upper += 1;
-        //     } else if(c.charCodeAt(0) >= 97 && c.charCodeAt(0) <= 122){
-        //       lower += 1;
-        //     }
-        //   }
-        //   if(upper < 1 || lower < 1 || num < 1){
-        //     return res.status(401).json({
-        //       message: "Password invalid. You need to have at least 1 upper case, at least 1 lower case, and at least 1 number."
-        //     })
-        //   }
-        // }
-        
-
-  
         User.findOne({$or: [{email:req.body.email}, {username: req.body.username}]}).then(user1=>{
           if(user1){
             return res.status(401).json({
@@ -73,64 +40,19 @@ router.route('/register').post((req, res) => {
         });;
       })
   
-    // const newUser = {
-    //     email: req.body.email,
-    //     username: req.body.username,
-    //     password: req.body.password
-    // }
-    // // let newUser = await User.create(user);
-    // new User(newUser).save((err, user)=>{
-    //     console.log('saving');
-    //     if (err){
-    //         console.log("DOCUMENT SAVE ERROR");
-    //     }else{
-    //         req.session.regenerate((err)=>{
-    //             if(!err){
-    //                 req.session.user=user;
-    //                 req.session.save(function(err){
-    //                     if (!err) {
-    //                         console.log(req.session);
-    //                         res.json(user)
-    //                     }
-    //                 });              
-    //             }else{
-    //                 console.log("SESSION CANNOT START");
-    //             }
-    //         })
-    //     }
-    // });
 })
 
 router.route('/updateProfile').put(checkAuth, async(req, res) => {
     console.log("update user profile...");
-    // while(req.session.user === undefined){
-    //     console.log("waiting for sessin user to exist -- update user profile");
-    // }
-    // const username = req.session.user.username;
     const username = req.userData.username;
-    // console.log(username);
     req.body.confirmed = true;
     let updatedUser = await User.findOneAndUpdate({username: username}, req.body);
     res.json(updatedUser);
 })
 
-// router.route('/profile/:username').put(async(req, res) =>{
-//     let updatedUser = await User.findOneAndUpdate({netid: req.params.username}, req.body);
-//     res.json(updatedUser);
-// })
-
-// router.route('/check/login').get(async(req, res) =>{
-//   // console.log(req.userData);
-//   console.log(req.user);
-//   res.json(req.user);
-// })
 
 router.route('/loginUser').get(checkAuth, async(req, res) =>{
-    // while(req.session.user === undefined){
-    //     console.log("waiting for sessin user to exist -- login User");
-    //     break;
-    // }
-    // const username = req.session.user.username;
+
 
       const username = req.userData.username;
       let target = await User.findOne({username: username}).populate('courses');
@@ -169,7 +91,6 @@ router.route("/login").post((req, res) => {
                     { expiresIn: "5h" }
                 );
                 // console.log(token);
-                // req.user = fetchedUser;
                 res.status(200).json({
                     token: token,
                     expiresIn: 3600,

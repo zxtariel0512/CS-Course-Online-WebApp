@@ -7,7 +7,6 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
-import { AuthContext } from '../context/auth-context';
 import { useParams } from 'react-router';
 
 function PostReview() {
@@ -35,8 +34,7 @@ function PostReview() {
                 setUser(response.data);
                 setInitUser(1);
             })
-        // this.setState({course: this.props.match.params.slug})
-        // const courseSlug = Reviews.props.match.params.slug;
+
         
         
         axios.get(`http://linserv1.cims.nyu.edu:11123/courses/${courseSlug}`)
@@ -47,14 +45,14 @@ function PostReview() {
     }
 
     const onChangeRatings = (e) => {
-        // Reviews.setState({rating: parseInt(e.target.value)});
+
         setRatings(parseInt(e.target.value));
     }
     const onChangeContent = (e) => {
-        // Reviews.setState({content: e.target.content});
+
         setContent(e.target.value);
     }
-    // console.log(courseSlug);
+
     const handlePost = (e) => {
         e.preventDefault();
         var params = new URLSearchParams();

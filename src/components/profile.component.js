@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export default class Profile extends Component{
 
-    // axios.get('http://localhost:3000/users/loginUser');
+    
 
     constructor(props){
         super(props);
@@ -17,7 +17,7 @@ export default class Profile extends Component{
 
     componentDidMount(){
 
-        // try{
+
             axios.get('http://linserv1.cims.nyu.edu:11123/users/loginUser', {
                 headers:{
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -30,16 +30,7 @@ export default class Profile extends Component{
                     this.setState({user: response.data, init:1})
                 }
             })
-            // axios.get('http://localshot:3000/users/get/User')
-            //     .then(response => {
-            //         this.setState({user: response.data, init: 1})
-            //     })
-        // } catch{
-        //     axios.get('http://localhost:3000/users/find/:username')
-        //         .then(response => {
-        //             this.setState({user: response.data, init: 1})
-        //         })
-        // }
+
        
     }
     

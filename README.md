@@ -1,6 +1,23 @@
 # CSLOL
 
+## ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Need to login first to access other pages.`
+In order to access other pages, along with forms, you need to first login through page '/', or register through page '/register'.
+
 ## Update on Milestone
+### Milestone #4 (final submission)
+[Here are links to the github repo that contains research progress on React.js and React-Bootstrap](src/components)
+
+Here are links to the third form for posting reviews to a specific course
+
+* [Client side and frontend in react.js](src/components/reviews.component.js)
+* [Backend router](backend/routes/review.js)
+
+Here are links to the client side validation
+
+* [Register](src/components/register.component.js)
+* [Complete user profile (Age and Phone)](src/components/complete-info.component.js)
+
+
 ### Milestone #3
 Here are links to the github repo that contains research progress on using JWT to do user authentication
 
@@ -37,11 +54,11 @@ After registration and filling out some basic personal information, users are ab
 ## Data Model
 The application will store User, Course, and Review.
 
-* User can have an array of Course (via reference, and would be populated by Course name).
+* User can have an array of Course (via reference, and would be populated).
 
-* Course can have an array of Review (via reference, and would be populated by Review ratings).
+* Course can have an array of Review (via reference, and would be populated).
 
-* Review has a publisher (via reference to User, and would be populated by username), and a reviewed course (via reference, and would be populated by Course name).
+* Review has a publisher (via reference to User, and would be populated), and a reviewed course (via reference, and would be populated).
 
 An example of User:
 
@@ -71,11 +88,13 @@ An example of Course:
     time: 'Tue, Thu. 9:30-10:45',
     mode: 'online',
     location: 'N/A',
-    reviews: [5, 5, 4, 5, 5, 4],
+    reviews: [] // will be Review object and will be populated
     slug: applied-internet-tech,
     students: [_id1, _id2, _id3],
     emailList: [s1@nyu.edu, s2@nyu.edu, s3@yahoo.com],
-    expectation: ["I hope to learn more about Socket", "I hope this course can have a bit less homework"]
+    expectation: ["I hope to learn more about Socket", "I hope this course can have a bit less homework"],
+    topics: ["Node.js", "React.js", "MongoDB", "socket.io],
+    textbooks: ["Exploring ES6 by Axel Rauschmayer", "Speaking JavaScript by Axel Rauschmayer"]
 }
 ```
 
@@ -83,102 +102,85 @@ An example of Review:
 
 ```
 {
-    publisher: 'ls3',
+    publisher: '', // will be User object and will be populated
     content: 'Brilliant class! Very thorough introduction, and now I can make a web app on my own!.' //optional
     ratings: 5,
-    course: 'Applied Internet Technologies'
+    course: '' // will be Course object and will be populated
 }
 ```
 
 ### [Link to the draft of models](./backend/models)
 
 ## Wireframes
-
-**Login, Registration, Complete-Profile-Info, and Profile pages are finished.**
-
-**Rest are generated as draft in milestone 1.**
-### /main-courses - main page, redirect to /courses
-
-![](./documentation/course.png)
-
-### /enroll/:slug - enrollment page, prompts users for contact email address and message (expectations of this course) to their instructors
-![](./documentation/enroll.png)
-
-### / - log in page, prompt user for username and password
-
+### / --> Login page. Users need to login first to continue
 ![](./documentation/login.png)
 
-### /register - register page, prompt user for some basic personal information, and email address for later confirmation email
-
+### /register --> Register page. Users are prompted for email, username, and password. Client side validation included
 ![](./documentation/register.png)
 
-### /complete-user-information - after user registers their account, enter this page to fill up information for their profile
-![](./documentation/fillUpProfile.png)
+### /complete-user-information --> After user's first-time-login, this page is called after the login. Users are prompted for some basic infomation, but only first name and last name are required
+![](./documentation/complete-info.png)
 
-### /username/profile - personal profile of current user. (May contain 'drop' utility, which is not displayed now so far.)
+### /main-courses --> Include all courses and their basic info, along with access to user's profile
+![](./documentation/main-courses.png)
 
+### /enroll/:slug --> Enroll page. Users are prompted for a commonly used contact email and expectation to the course he/she intends to enroll in, along with the confirmation page.
+![](./documentation/enroll.png)
+![](./documentation/enroll-confirmation.png)
+
+### /main-courses/:slug --> Specific course page. Include detailed course information
+![](./documentation/coursePage.png)
+
+### /main-courses/:slug/review --> Reviews page. All reviews are displayed for specific course, along with access to post a new review
+![](./documentation/reviews.png)
+![](./documentation/post-reviews.png)
+
+### /profile --> Profile page. Include information user has entered in /complete-user-information page, along with all enrolled courses
 ![](./documentation/profile.png)
 
-### /courses - display all courses and brief info
+### /introduction --> Introduction of CSLOL
+![](./documentation/intro.png)
 
-![](./documentation/course.png)
+### /actions --> User story page
+![](./documentation/user-story.png)
 
-### /about - contains information about the educational institution
+### /reminder --> Contain things user needs to keep in mind
+![](./documentation/reminder.png)
 
-![](./documentation/about.png)
-
-### /price-and-rule - contains information about the prices, tuition, and tutorial of this web application (course registration)
-
-![](./documentation/price&rule.png)
-
-### /courses/slug - page for specific course that contains information of that course, reviews, and enroll option. slug would be the course's name.
-
-![](./documentation/specificCourse.png)
-
-### /courses/slug/reviews - contains all reviews (ratings and comments) of a specific course specified by the slug (the course's name)
-
-![](./documentation/overallRating.png)
-
-### /courses/slug/reviews/post - post a review to a specific course (required login status)
-
-![](./documentation/review.png)
-
-### /payment - payment page (may change depending on which API to use finally)
-
-![](./documentation/payment.png)
+### /error --> A small error page that notifying user he/she needs to login first in order to access current url page
+![](./documentation/error.png)
 
 ## Site Map
-**This part has not been updated yet. Will be updated later after adjusting all web pages more carefully.
-The following site map is generated in illustrator.
 
-![](./documentation/siteMap.png)
+![](./documentation/site-map.png)
 
-### [Link to the cite map](./documentation/siteMap.pdf)
+### [Link to the cite map](./documentation/site-map.png)
 
 ## User Stories
-* As non-register user, I can register an account with a valid email address.
+* As non-register user, I can register an account.
 * As registered user, I can login.
 * As login user, I can enroll any class on site.
-* (As login user, I can drop any class I have previously enrolled.)
-* As login user, I can pay for courses that I have enrolled.
-* As login user, I can view and change some information in my profile.
+* As login user, I can complete user information to enrich my profile.
+* As login user, I can view my profile along with all enrolled courses.
+* As login user, I can see detailed information of each course.
 * As login user, I can see reviews of a specific course.
+* As login user, I can see average ratings of each course.
 * As login user, I can post a review to any course.
+* As login user, I can see introduction, user story, and reminder for this web app.
 
 ## Research Topics
-* (4 points) React.js
+* (6 points) React.js
     * Having a thorough self-learning on React.js, so that I can use MERN stack (MongoDB, Express.js, React.js, and Node.js) to finish this project.
-    * Attempting to integrate some relatively fancier web pages, compared to those in assignments.
-    * Attempting to study how to use React.js along with Node.js to create web application.
-* (3 points) Use JWT to do user authentication and store information for each user
-* (3 points) Server side authentication: confirmation email
-    * Plan to use either aws-amplify or Nodemailer to realize the confirmation functionality: after entering email address in registering process, the user needs to confirm their email address before formally being registered.
+    * Integrate some relatively fancier web pages, compared to those in assignments.
+    * Use React.js along with Node.js to create web application.
+* (2 points) Use JWT to do user authentication and store information for each user
+* (1 point) Server side validation using jwt token on login page ('/').
+* (1 point) Client side validation using React.js on register page ('/register') and complete user information page ('/complete-user-information').
 * (2 points) Bootstrap
     * Using bootstrap for some frontend elements decorations, such as forms and buttons.
-* (3 points) Use some payment API, such as Paypal.api, to realize payment functionality
-    * Enable user to pay for their courses online.
+* (2 points) Use Axios to connect backend and frontend (React.js and Node.js)
 
-12 points total out of 8.
+14 points total out of 8.
 
 ## [Link to Initial Main Project File](./backend/server.js)
 
