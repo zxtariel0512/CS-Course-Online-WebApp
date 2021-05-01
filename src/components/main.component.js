@@ -44,7 +44,7 @@ export default class Main extends Component{
         //     })
         // const response = axios.get('http://localhost:3000/courses');
         // this.setState({courses: response.data});
-        await axios.get("http://localhost:3000/courses/", {
+        await axios.get("http://linserv1.cims.nyu.edu:11123/courses/", {
             headers:{
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             }
